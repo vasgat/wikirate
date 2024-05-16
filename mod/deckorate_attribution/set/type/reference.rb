@@ -1,22 +1,33 @@
+include_set Abstract::Export
 
 card_accessor :adaptation, type: :pointer
 card_accessor :party, type: :list
 card_accessor :url, type: :uri
 card_accessor :wikirate_title, type: :phrase
 card_accessor :subject, type: :pointer
+card_accessor :file
 
 require_field :subject
 require_field :adaptation
 require_field :party, when: :party_required?
 
-def ok_to_update
-  return false unless Auth.signed_in?
-
-  (Auth.current_id == creator_id) || Auth.current.stewards_all?
+event :store_attribution_snapshot, :integrate_with_delay, on: :create do
+  handle_file csv_dump_content do |tmpfile|
+    file_card.file = tmpfile
+    file_card.save!
+  end
 end
 
-def ok_to_delete
-  ok_to_update
+def subject_item_card
+  subject_card.first_card
+end
+
+def ok_to_update?
+  Auth.signed_in? && ((Auth.current_id == creator_id) || Auth.current.stewards_all?)
+end
+
+def ok_to_delete?
+  ok_to_update?
 end
 
 private
@@ -43,12 +54,10 @@ format :html do
     attribution_message
   end
 
-  view :bar_right do
-    field_nest :url, view: :url_link, unknown: :blank
-  end
+  view :bar_right, template: :haml
 
   view :new_buttons do
-    wrap { standard_save_button }
+    haml :tabs_placeholder
   end
 
   view :edit_buttons do
@@ -59,6 +68,12 @@ format :html do
     tabs "Rich Text" => { content: render_rich_text_attrib },
          "Plain Text" => { content:  render_plain_text_attrib },
          "HTML" => { content: render_html_attrib }
+  end
+
+  view :attributions_placeholder, unknown: true do
+    tabs "Rich Text" => {},
+         "Plain Text" => {},
+         "HTML" => {}
   end
 
   view :rich_text_attrib do
@@ -151,4 +166,40 @@ format do
   def adaptation?
     card.adaptation_card&.first_card&.codename == :yes_adaptation
   end
+end
+
+format :csv do
+  view :titles do
+    Answer.csv_titles true
+  end
+
+  view :body do
+    nest card.subject, view: :reference_dump_core
+  end
+end
+
+private
+
+# FIXME: this #handle_file business should not be necessary!
+# it is copied from vendor/decko/mod/assets/set/abstract/asset_outputter.rb
+# it *probably* shouldn't be necessary there.
+# it *definitely* shouldn't be necessary here.
+#
+# The StringIO solution below (don't uncomment or remove until above is addressed!)
+# should work. as in card.update file: StringIO.new(string)
+
+def handle_file output
+  f = Tempfile.new [id.to_s, ".csv"]
+  f.write output
+  f.close
+  yield f
+  f.unlink
+end
+
+# def csv_dump_file
+#   StringIO.new csv_dump_content
+# end
+
+def csv_dump_content
+  format(:csv).show :titled, {}
 end

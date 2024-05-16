@@ -8,18 +8,39 @@
 - :name: Jurisdiction
   :type: :cardtype
   :codename: jurisdiction
-- :name: OAR id
+
+- :name: Corporate Identifier
+  :codename: corporate_identifier
+  :type: cardtype
+  :fields:
+    :type:
+      :fields:
+        :create:
+          - :wikirate_team
+        :delete:
+          - :wikirate_team
+
+- :name: OAR ID
   :codename: oar_id
+  :type: corporate_identifier
+
 - :name: SEC CIK
   :codename: sec_cik
-- :name: OpenCorporates
-  :type: :research_group
-  :codename: open_corporates
+  :type: corporate_identifier
+
+- :name: Wikipedia
+  :codename: wikipedia
+  :type: corporate_identifier
+
+- :name: OpenCorporates ID
+  :type: corporate_identifier
+  :codename: open_corporates_id
+
+- :name: Multiple
+  :codename: multiple
+
 - :name: Incorporation
   :codename: incorporation
-- :name: Wikipedia
-  :type: :wikirate_company
-  :codename: wikipedia
 - :name: company search
   :codename: company_search
 - :name: Country

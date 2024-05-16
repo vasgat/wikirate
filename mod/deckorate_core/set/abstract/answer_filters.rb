@@ -8,8 +8,8 @@ format :html do
                                                           calculated: :radio,
                                                           status: :radio,
                                                           updated: :radio,
-                                                          outliers: :radio,
-                                                          source: :autocomplete
+                                                          # outliers: :radio,
+                                                          source: :multiselect
 
   def filter_status_default
     "exists"
@@ -53,6 +53,10 @@ format :html do
     { "Yes" => :calculated, "No" => :not_calculated }
   end
 
+  def filter_source_options
+    :remote_type
+  end
+
   def filter_status_label
     "Status"
   end
@@ -61,6 +65,7 @@ format :html do
     "Value"
   end
 
+  # the "closer" is the ui badge that closes a filter
   def filter_value_closer_value value
     case value
     when Array
@@ -70,6 +75,10 @@ format :html do
     else
       value
     end
+  end
+
+  def filter_updated_closer_value value
+    filter_value_closer_value value
   end
 
   private

@@ -1,3 +1,6 @@
+$orange-grad-1: orange !default;
+$orange-grad-2: orange !default;
+
 .header-with-bg {
   height: 360px;
   .wikirate-section-header {
@@ -35,8 +38,6 @@
     text-align: center;
   }
 }
-
-
 
 #wikirate-data-today {
   background: $light-teal;
@@ -118,7 +119,7 @@
   }
   .box-bottom {
     border: none;
-    background: white;
+    background: $white;
     .thumbnail {
       align-items: center
     }
@@ -146,15 +147,12 @@
     height: 85%;
     min-height: 300px;
     margin: 1em;
+    .btn.action-link {
+      border: 1.4px solid $purple-grad-2;
+    }
     &:hover {
-      h5, %i, a {
-        color: $white !important;
-      }
-      color: $white;
-      //cursor: pointer;
-      background-color: $purple-grad-1;
       .btn.action-link {
-        border: 1.4px solid transparent;
+        border: 1.4px solid $border-blue;
       }
     }
   }
@@ -175,17 +173,53 @@
     h5, a {
       color: $orange;
     }
-
-    &:hover {
-      background-color: $orange;
-    }
   }
   .wr-arrow {
     color: $orange;
     &:hover {
-      color: $white;
       background-color: $orange;
     }
+  }
+  .slick-slider:not(:hover) .slick-current .action-card .card,
+  .action-card .card:hover {
+    background: linear-gradient(18.98deg, $orange-grad-1 7.04%, $orange-grad-2 90.87%);
+  }
+}
+
+.homepage-involved-cards {
+  .action-card .card {
+    h5, a {
+      color: $purple-grad-1;
+    }
+  }
+  .wr-arrow {
+    color: $purple-grad-1;
+    &:hover {
+      background-color: $purple-grad-1;
+    }
+  }
+  .slick-slider:not(:hover) .slick-current .action-card .card,
+  .action-card .card:hover {
+    background: linear-gradient(18.98deg, $purple-grad-1 7.04%, $purple-grad-2 90.87%);
+  }
+}
+
+.homepage-involved-cards, #community-actions {
+  .slick-slider:not(:hover) .slick-current .action-card .card,
+  .action-card .card:hover {
+    color: $white;
+
+    h5.card-title,
+    a.action-link {
+      color: $white;
+    }
+  }
+  .wr-arrow:hover {
+    color: $white;
+  }
+  .action-link:hover i {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
   }
 }
 
@@ -353,7 +387,7 @@
       font-size: 1rem;
       letter-spacing: 0.3px;
       font-weight: 500;
-      background: linear-gradient(18.98deg, #6B5CD8 7.04%, #7f73d5 90.87%);
+      background: linear-gradient(18.98deg, $purple-grad-1 7.04%, $purple-grad-2 90.87%);
     }
   }
 }

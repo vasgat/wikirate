@@ -2,7 +2,7 @@
 
 require_relative "../../../../lib/open_corporates/api"
 
-RSpec.describe Card::Set::TypePlusRight::WikirateCompany::OpenCorporates do
+RSpec.describe Card::Set::TypePlusRight::WikirateCompany::OpenCorporatesId do
   let(:api_response) do
     path =
       File.expand_path("../../../../support/open_corporates_api_response.json", __FILE__)
@@ -17,13 +17,13 @@ RSpec.describe Card::Set::TypePlusRight::WikirateCompany::OpenCorporates do
 
   describe "view: oc_search_link" do
     it "shows external link" do
-      view = render_view :oc_search_link, name: "Los Pollos Hermanos+open corporates"
+      view = render_view :oc_search_link, name: "Los Pollos Hermanos+open corporates id"
       expect(view).to have_tag(:a, with: { class: "external-link" })
     end
   end
 
   describe "view :core" do
-    subject { render_view :core_async_content, name: "Google LLC+open corporates" }
+    subject { render_view :core_async_content, name: "Google LLC+open corporates id" }
 
     def have_table rows
       have_tag :table do
