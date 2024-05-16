@@ -12,7 +12,7 @@
     Research Group
     Company Group
 
-#- :name:
+# - :name:
 #    - Ethan McCutchen
 #    - test delta
 #  :type: :metric
@@ -25,11 +25,11 @@
 #    :hybrid: '0'
 #    :unpublished: '0'
 
-#- :name:
-#    - :homepage
-#    - :metric
-#  :type: :pointer
-#  :content: Ethan_McCutchen+test_delta
+# - :name:
+#     - :homepage
+#     - :metric
+#   :type: :pointer
+#   :content: Ethan_McCutchen+test_delta
 
 - :name:
     - :search
@@ -43,15 +43,15 @@
     Research: B Corp Certified Companies performance
     Research: Gender Equality Policies in the Delivery Service Industry
 
-- :name:
-    - :designer
-    - :featured
-  :type: :list
-  :content: |-
-    Global Reporting Initiative
-    Clean Clothes Campaign
-    Fashion Revolution
-    Organisation for Economic Cooperation & Development (OECD)
-    Alliance for Corporate Transparency
-    Walk Free
-    CDP
+#- :name:
+#    - :designer
+#    - :featured
+#  :type: :list
+#  :content: |-
+#    Global Reporting Initiative
+#    Clean Clothes Campaign
+#    Fashion Revolution
+#    Organisation for Economic Cooperation & Development (OECD)
+#    Alliance for Corporate Transparency
+#    Walk Free
+#    CDP

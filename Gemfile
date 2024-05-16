@@ -68,12 +68,14 @@ gem "pdfkit"                         # PDF-related tasks
 gem "wkhtmltopdf-binary"             # converting HTML to PDF
 
 # MATH
-gem "descriptive_statistics"         # adds stats methods to enumerables
-gem "savanna-outliers"               # calculates outliers
-gem "statistics2"                    # required by savanna-outliers
+# gem "descriptive_statistics"         # adds stats methods to enumerables
+# gem "savanna-outliers"               # calculates outliers
+# gem "statistics2"                    # required by savanna-outliers
 
 # MISCELLANEOUS
 gem "company-mapping"                # Vasso's gem, written for WikiRate
+gem "puma", "~>5.6"                  # local webserver (6.x broke semaphore )
+gem "rack-attack"                    # protection from bad clients
 gem "rack-cors"                      # support for Cross-Origin Resource Sharing (CORS)
 
 group :live do
@@ -95,7 +97,6 @@ gem "timecop", group: %i[test cucumber] # date/time manipulation in tests
 group :test, :development do
   # gem "debase"
   gem "decko-spring", path: "./vendor/decko/support"
-  gem "puma", "~>5.6"                   # local webserver (6.x broke semaphore )
   # gem "ruby-debug-ide"
 end
 
@@ -104,8 +105,3 @@ group :profile do
   gem "ruby-jmeter"                  # connected to Flood.io, used in load testing
   gem "wbench"                       # Benchmarking web requests
 end
-
-# remove me soon
-gem "mail", "!=2.8.0"       # broke staging
-gem "rack-test", "!=2.0.0"  # (2.0.0 breaks things on semaphore)
-gem "simplecov", "!=0.22.0" # broke semaphore

@@ -9,7 +9,11 @@ format :html do
   end
 
   def tab_list
-    %i[metric_answer wikirate_company metric data_subset details]
+    %i[details metric_answer wikirate_company metric data_subset]
+  end
+
+  def tab_options
+    { metric_answer: { count: card.answers.count } }
   end
 
   view :wikirate_company_tab do

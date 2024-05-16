@@ -37,6 +37,14 @@ class Card
                         name: [:match, value], type: :wikirate_company
       end
 
+      def filter_by_corporate_identifier value
+        type_clause, value_clause = CompanyFilterCql.corporate_identifier_clauses value
+        multi_company do
+          restrict_by_cql :ident, :company_id,
+                          value_clause.merge(return: :left_id, right: type_clause)
+        end
+      end
+
       def filter_by_country value
         filter_by_company_filter :countries, :country_condition, value
       end
@@ -66,7 +74,23 @@ class Card
         single_metric? ? (@metric_card ||= Card[@filter_args[:metric_id]]) : return
       end
 
+      def filter_by_depender_metric value
+        metric = validate_depender_metric value
+        return unless (dependees = metric.dependee_metrics).present?
+        filter :metric_id, dependees.map(&:id)
+        company_answer_join :dependee
+        @conditions <<
+          "dependee.metric_id = #{metric.id} and dependee.year = answers.year"
+      end
+
       private
+
+      def validate_depender_metric value
+        metric = value.card
+        return metric if metric&.calculated?
+
+        raise Error::UserError, "not a calculated metric: #{value}"
+      end
 
       def company_answer_join table
         @joins << "JOIN answers AS #{table} ON answers.company_id = #{table}.company_id"

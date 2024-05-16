@@ -31,7 +31,7 @@ format do
   end
 
   def shared_metric_filter_map
-    %i[bookmark topic designer metric_type value_type research_policy]
+    %i[wikirate_topic designer metric_type value_type research_policy bookmark]
   end
 
   def filter_map
@@ -53,6 +53,13 @@ format do
 
   def default_desc_sort_dir
     ::Set.new %i[bookmarkers company answer reference]
+  end
+
+  def secondary_sort_hash
+    {
+      metric_bookmarkers: { metric_title: :asc },
+      metric_designer: { metric_title: :asc }
+    }
   end
 end
 

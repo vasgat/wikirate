@@ -15,11 +15,11 @@ def current_organizer?
   Auth.current_id.in?(left.organizer_card.item_ids)
 end
 
-def ok_to_read
+def ok_to_read?
   super || current_member? || current_organizer?
 end
 
-def ok_to_update
+def ok_to_update?
   super || current_organizer?
 end
 
@@ -29,13 +29,11 @@ end
 
 event :join_group, :validate, trigger: :required do
   abort :failure, "cannot join this group" unless ok_to_join?
-  add_item! Auth.current.name
-  abort :success
+  add_item Auth.current.name
 end
 
 event :leave_group, :validate, trigger: :required do
-  drop_item! Auth.current.name
-  abort :success
+  drop_item Auth.current.name
 end
 
 format do
@@ -57,8 +55,8 @@ format :html do
   delegate :ok_to_join?, :current_member?, to: :card
 
   def self.membership_button action, test, btnclass
-    view "#{action}_button".to_sym, unknown: true, denial: :blank, cache: :never,
-         perms: test do
+    view "#{action}_button".to_sym,
+         unknown: true, denial: :blank, cache: :never, perms: test do
       link_to "#{action.to_s.capitalize} Group",
               path: { action: :update,
                       card: { trigger: "#{action}_group" },
@@ -82,8 +80,7 @@ format :html do
   end
 
   view :manage_button, unknown: true, denial: :blank, perms: :update do
-    link_to_view "edit",
-                 "Manage Researcher List",
+    link_to_view "edit", "Manage Researcher List",
                  class: "btn btn-outline-primary btn-sm"
   end
 
@@ -92,6 +89,7 @@ format :html do
   end
 
   private
+
   def members_on_page paging_args
     Card::Auth.as_bot do
       cql = { referred_to_by: card.name, sort_by: :name, right_plus: :account }

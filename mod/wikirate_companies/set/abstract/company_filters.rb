@@ -3,7 +3,7 @@
 
 format do
   def shared_company_filter_map
-    %i[company_category company_group country company_answer]
+    %i[corporate_identifier company_category company_group country company_answer]
   end
 end
 
@@ -11,6 +11,20 @@ format :html do
   # don't show advanced company answer filter in compact form
   def compact_filter_form_fields
     super.select { |hash| hash[:key] != :company_answer }
+  end
+
+  def filter_corporate_identifier_type
+    :identifier_custom
+  end
+
+  def identifier_custom_filter field, _default, _opts
+    haml :identifier_custom_filter, defaults: (filter_param(field) || {})
+  end
+
+  def filter_corporate_identifier_closer_value cid
+    vals = [cid[:value]]
+    vals.unshift "(#{cid[:type]})" if cid[:type].present?
+    vals.join " "
   end
 
   # The following all help support the "advanced" filter for companies based on answers

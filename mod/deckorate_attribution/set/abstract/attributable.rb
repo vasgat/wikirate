@@ -8,6 +8,18 @@ def attribution_title
   name
 end
 
+def attribution_changes_link?
+  true
+end
+
+def attribution_changes_text
+  "Filter for changes"
+end
+
+def attribution_changes_path created_at
+  { filter: { updated: created_at } }
+end
+
 format do
   delegate :attribution_title, :attribution_authors, to: :card
 
@@ -16,7 +28,7 @@ format do
   end
 
   view :att_title do
-    "'#{attribution_title}' (#{render_id_url}) by #{render_attribution_authorship}"
+    "'#{attribution_title}' <#{render_id_url}> by #{render_attribution_authorship}"
   end
 
   view :attribution_authorship do
@@ -24,7 +36,7 @@ format do
   end
 
   view :att_license do
-    "licensed under #{license_text} (#{license_url})"
+    "licensed under #{license_text} <#{license_url}>"
   end
 
   private
@@ -51,14 +63,26 @@ format :html do
     :history_and_references
   end
 
-  def attribution_link text: ""
+  # Generates an attribution link with optional parameters.
+  #
+  # @param [String] text The text displayed on the link.
+  # @param [String] title ("Attribution") The title of the linked content.
+  #
+  # @return [String] The HTML code for the attribution link.
+  #
+  # @example
+  #   attribution_link(text: "Details", title: "View Attribution Details")
+  def attribution_link text: "", title: "Attribution"
     # , button: false
     modal_link "#{icon_tag :attribution} #{text}",
                size: :large,
                # class: ("btn btn-primary" if button),
                path: { mark: :reference,
                        action: :new,
-                       card: { fields: { ":subject": card.name } } }
+                       card: { fields: { ":subject": card.name } } },
+               title: title,
+               "data-bs-toggle": "tooltip",
+               "data-bs-placement": "bottom"
   end
 
   view(:bar_menu, cache: :never) { super() }
@@ -67,24 +91,6 @@ format :html do
   view :history_and_references do
     tabs "Contributions" => { content: render_history(hide: :title) },
          "References" => { content: field_nest(:reference, view: :content) }
-  end
-
-  view :attributions do
-    tabs "Rich Text" => { content: render_rich_text_attrib },
-         "Plain Text" => { content:  render_plain_text_attrib },
-         "HTML" => { content: render_html_attrib }
-  end
-
-  view :rich_text_attrib do
-    attribution_box { render_attribution }
-  end
-
-  view :plain_text_attrib do
-    attribution_box { card.format(:text).render_attribution }
-  end
-
-  view :html_attrib do
-    attribution_box { h render_attribution }
   end
 
   view :att_wikirate do
@@ -108,5 +114,13 @@ format :html do
 
   view :att_license do
     "licensed under #{link_to license_text, href: license_url, target: '_blank'}"
+  end
+end
+
+format :csv do
+  view :reference_dump_core do
+    [].tap do |rows|
+      card.each_reference_dump_row { |answer| rows << answer.csv_line(true) }
+    end
   end
 end

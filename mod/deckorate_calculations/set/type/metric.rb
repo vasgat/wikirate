@@ -9,12 +9,34 @@ event :recalculate_answers, delay: true, priority: 5 do
   deep_answer_update
 end
 
+# an unorthodox metric is a calculated metric that directly depends on an answer
+# that is not for the same company and year
+def unorthodox?
+  false
+end
+
+def orthodox?
+  !unorthodox?
+end
+
 # DEPENDEES = metrics that I depend on
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # overwritten in calculations
 def direct_dependee_metrics
   []
+end
+
+# USE WITH CAUTION
+# This method works DOWN the dependency tree and recalculates answers. It's not a
+# typical pattern and was written as a bit of hail mary attempt to fix some confusing
+# results. But it can be very computationally expensive, and if things are working
+# properly it should never be necessary.
+def recalculate_dependees
+  return if researched?
+
+  direct_dependee_metrics.each(&:recalculate_dependees)
+  calculate_answers
 end
 
 # DEPENDERS = metrics that depend on me
@@ -53,7 +75,15 @@ def direct_depender_metrics
 end
 
 def depender_tree
-  DependerTree.new direct_depender_metrics
+  @depender_tree ||= DependencyTree.new :depender, self
+end
+
+def dependee_metrics
+  dependee_tree.metrics
+end
+
+def dependee_tree
+  @dependee_tree ||= DependencyTree.new :dependee, self
 end
 
 def score_metrics
@@ -131,5 +161,26 @@ format :html do
     hash.delete :metric
     name = hash.delete :name
     haml :formula_variable_row, name: name, options: hash
+  end
+
+  def metric_tree_item detail=nil
+    wrap_with :div, class: "static-tree-item" do
+      metric_tree_item_title detail: detail
+    end
+  end
+
+  def metric_tree_item_title detail:, answer: nil
+    haml :metric_tree_item_title, detail: variable_detail(detail), answer: answer
+  end
+
+  private
+
+  def variable_detail detail
+    return detail unless detail.is_a? Hash
+    detail = detail.clone
+
+    variable = detail.delete :name
+
+    haml :variable_detail, variable: variable, options: detail
   end
 end

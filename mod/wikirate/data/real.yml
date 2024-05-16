@@ -22,6 +22,7 @@
 - :name: Data
   :codename: wikirate_data
 
+- blurbs # be rake card:sow -- -o -c '{"type":"Blurb"}' -t :title,uri,body,icon
 - blurblists
 
 - :name: Publication
@@ -84,17 +85,17 @@
   :type: :html
   :codename: homepage
 
-- :name:
-    - :organizer
-    - :featured
-  :type: :list
-  :content: |-
-    Walk Free
-    University of Connecticut
-    MANA
-    AMD Akademie Mode & Design Berlin
-    Oxfam India
-    Columbia University - School of International & Public Affairs
+#- :name:
+#    - :organizer
+#    - :featured
+#  :type: :list
+#  :content: |-
+#    Walk Free
+#    University of Connecticut
+#    MANA
+#    AMD Akademie Mode & Design Berlin
+#    Oxfam India
+#    Columbia University - School of International & Public Affairs
 
 - :name:
     - :account
@@ -144,6 +145,30 @@
 - :name: Wikirate Policies
   :codename: policy
 
+- :name: Community Guidelines
+  :codename: community_guidelines
+  :conflict: override
+
+- :name: Privacy Policy
+  :codename: privacy_policy
+  :conflict: override
+
+- :name: Terms of Use
+  :codename: terms_of_use
+  :conflict: override
+
+- :name: Disclaimers
+  :codename: disclaimers
+  :conflict: override
+
+- :name: Notice and Take Down Procedure
+  :codename: notice_and_take_down
+  :conflict: override
+
+- :name: Licensing
+  :codename: licensing
+  :conflict: override
+
 - :name:
     - :policy
     - :description
@@ -190,3 +215,7 @@
     [[https://www.meetup.com/open-data-for-good/events/293019188/ |
     online community troubleshooting event]]
     on 8 May, 17h CEST.
+
+- :name: Attribution Guide
+  :codename: attribution_guide
+  :conflict: override
