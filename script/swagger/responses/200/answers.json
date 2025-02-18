@@ -9,7 +9,7 @@
     "codename": "cardtype"
   },
   "url": "https://wikirate.org/Answers.json",
-  "codename": "metric_answer",
+  "codename": "answer",
   "items": [
     {
       "id": null,
@@ -22,7 +22,7 @@
       "year": 2023,
       "value": "0.0",
       "comments": null,
-      "record_url": "https://wikirate.org/Clean_Clothes_Campaign+Supply_Chain_Transparency_Score+Sogesma_SA.json"
+      "answer_url": "https://wikirate.org/Clean_Clothes_Campaign+Supply_Chain_Transparency_Score+Sogesma_SA.json"
     },
     {
       "id": 15544531,
@@ -35,7 +35,7 @@
       "year": 2023,
       "value": "No",
       "comments": "No, neither the company published any report nor provided any information on its website. Manali Rana[https://wikirate.org/Manali_Rana].....2023-09-19 12:46:43 UTC",
-      "record_url": "https://wikirate.org/Core+Company_Report_Available+Claire_s_Stores_Inc.json"
+      "answer_url": "https://wikirate.org/Core+Company_Report_Available+Claire_s_Stores_Inc.json"
     },
     {
       "id": 15544306,
@@ -48,7 +48,7 @@
       "year": 2023,
       "value": "No",
       "comments": "No, the company has neither published any report nor provided any information on its website. Manali Rana[https://wikirate.org/Manali_Rana].....2023-09-18 05:19:37 UTC",
-      "record_url": "https://wikirate.org/Core+Company_Report_Available+Matalan.json"
+      "answer_url": "https://wikirate.org/Core+Company_Report_Available+Matalan.json"
     },
     {
       "id": 15544261,
@@ -61,7 +61,7 @@
       "year": 2023,
       "value": "Yes",
       "comments": "Yes, the company publishes report containing ESG information. Manali Rana[https://wikirate.org/Manali_Rana].....2023-09-18 04:45:40 UTC",
-      "record_url": "https://wikirate.org/Core+Company_Report_Available+Primark.json"
+      "answer_url": "https://wikirate.org/Core+Company_Report_Available+Primark.json"
     },
     {
       "id": null,
@@ -74,7 +74,7 @@
       "year": 2023,
       "value": "No",
       "comments": null,
-      "record_url": "https://wikirate.org/Clean_Clothes_Campaign+Uses_Living_Wage_Benchmark_Combined+Sogesma_SA.json"
+      "answer_url": "https://wikirate.org/Clean_Clothes_Campaign+Uses_Living_Wage_Benchmark_Combined+Sogesma_SA.json"
     },
     {
       "id": null,
@@ -87,7 +87,7 @@
       "year": 2023,
       "value": "No",
       "comments": null,
-      "record_url": "https://wikirate.org/Clean_Clothes_Campaign+Isolating_Labour_Cost_Combined+Sogesma_SA.json"
+      "answer_url": "https://wikirate.org/Clean_Clothes_Campaign+Isolating_Labour_Cost_Combined+Sogesma_SA.json"
     },
     {
       "id": null,
@@ -100,7 +100,7 @@
       "year": 2023,
       "value": "No",
       "comments": null,
-      "record_url": "https://wikirate.org/Clean_Clothes_Campaign+Living_Wage_Action_Plan_Combined+Sogesma_SA.json"
+      "answer_url": "https://wikirate.org/Clean_Clothes_Campaign+Living_Wage_Action_Plan_Combined+Sogesma_SA.json"
     },
     {
       "id": null,
@@ -113,7 +113,7 @@
       "year": 2023,
       "value": "No",
       "comments": null,
-      "record_url": "https://wikirate.org/Clean_Clothes_Campaign+Policy_Promise_Score+Sogesma_SA.json"
+      "answer_url": "https://wikirate.org/Clean_Clothes_Campaign+Policy_Promise_Score+Sogesma_SA.json"
     },
     {
       "id": null,
@@ -126,7 +126,7 @@
       "year": 2023,
       "value": "No",
       "comments": null,
-      "record_url": "https://wikirate.org/Clean_Clothes_Campaign+Public_Commitment_on_Living_Wage_Combined+Sogesma_SA.json"
+      "answer_url": "https://wikirate.org/Clean_Clothes_Campaign+Public_Commitment_on_Living_Wage_Combined+Sogesma_SA.json"
     },
     {
       "id": null,
@@ -139,7 +139,7 @@
       "year": 2023,
       "value": "0.0",
       "comments": null,
-      "record_url": "https://wikirate.org/Clean_Clothes_Campaign+Supplier_Disclosure+Clean_Clothes_Research_Group+Sogesma_SA.json"
+      "answer_url": "https://wikirate.org/Clean_Clothes_Campaign+Supplier_Disclosure+Clean_Clothes_Research_Group+Sogesma_SA.json"
     },
     {
       "id": null,
@@ -152,7 +152,7 @@
       "year": 2023,
       "value": "0.0",
       "comments": null,
-      "record_url": "https://wikirate.org/Clean_Clothes_Campaign+Supplier_Disclosure_combined+Clean_Clothes_Research_Group+Sogesma_SA.json"
+      "answer_url": "https://wikirate.org/Clean_Clothes_Campaign+Supplier_Disclosure_combined+Clean_Clothes_Research_Group+Sogesma_SA.json"
     },
     {
       "id": null,
@@ -165,7 +165,7 @@
       "year": 2023,
       "value": "0.0",
       "comments": null,
-      "record_url": "https://wikirate.org/Clean_Clothes_Campaign+Transparency_Beyond_Basic_Pledge_Standard+Clean_Clothes_Research_Group+Sogesma_SA.json"
+      "answer_url": "https://wikirate.org/Clean_Clothes_Campaign+Transparency_Beyond_Basic_Pledge_Standard+Clean_Clothes_Research_Group+Sogesma_SA.json"
     },
     {
       "id": null,
@@ -178,7 +178,7 @@
       "year": 2023,
       "value": "No",
       "comments": null,
-      "record_url": "https://wikirate.org/Commons+Supplier_List_all+Sogesma_SA.json"
+      "answer_url": "https://wikirate.org/Commons+Supplier_List_all+Sogesma_SA.json"
     },
     {
       "id": null,
@@ -191,7 +191,7 @@
       "year": 2023,
       "value": "No",
       "comments": null,
-      "record_url": "https://wikirate.org/Clean_Clothes_Campaign+Transparency_Beyond_Basic_Pledge_Standard_Combined+Sogesma_SA.json"
+      "answer_url": "https://wikirate.org/Clean_Clothes_Campaign+Transparency_Beyond_Basic_Pledge_Standard_Combined+Sogesma_SA.json"
     },
     {
       "id": null,
@@ -204,7 +204,7 @@
       "year": 2023,
       "value": "0.0",
       "comments": null,
-      "record_url": "https://wikirate.org/Clean_Clothes_Campaign+Transparency_Beyond_Basic_Pledge_Standard_Combined+Clean_Clothes_Research_Group+Sogesma_SA.json"
+      "answer_url": "https://wikirate.org/Clean_Clothes_Campaign+Transparency_Beyond_Basic_Pledge_Standard_Combined+Clean_Clothes_Research_Group+Sogesma_SA.json"
     },
     {
       "id": null,
@@ -217,7 +217,7 @@
       "year": 2023,
       "value": "No",
       "comments": null,
-      "record_url": "https://wikirate.org/Clean_Clothes_Campaign+Open_Format_for_Supply_Chain_Disclosure_Combined+Sogesma_SA.json"
+      "answer_url": "https://wikirate.org/Clean_Clothes_Campaign+Open_Format_for_Supply_Chain_Disclosure_Combined+Sogesma_SA.json"
     },
     {
       "id": null,
@@ -230,7 +230,7 @@
       "year": 2023,
       "value": "0.0",
       "comments": null,
-      "record_url": "https://wikirate.org/Clean_Clothes_Campaign+Open_Format_for_Supply_Chain_Disclosure_Combined+Clean_Clothes_Research_Group+Sogesma_SA.json"
+      "answer_url": "https://wikirate.org/Clean_Clothes_Campaign+Open_Format_for_Supply_Chain_Disclosure_Combined+Clean_Clothes_Research_Group+Sogesma_SA.json"
     },
     {
       "id": null,
@@ -243,7 +243,7 @@
       "year": 2023,
       "value": "No",
       "comments": null,
-      "record_url": "https://wikirate.org/Clean_Clothes_Campaign+Supplier_Disclosure_combined+Sogesma_SA.json"
+      "answer_url": "https://wikirate.org/Clean_Clothes_Campaign+Supplier_Disclosure_combined+Sogesma_SA.json"
     },
     {
       "id": 15544409,
@@ -256,7 +256,7 @@
       "year": 2023,
       "value": "No",
       "comments": "No, neither the company published any report nor provided any information on its website. Manali Rana[https://wikirate.org/Manali_Rana].....2023-09-18 07:07:22 UTC",
-      "record_url": "https://wikirate.org/Core+Company_Report_Available+Quiksilver_Inc.json"
+      "answer_url": "https://wikirate.org/Core+Company_Report_Available+Quiksilver_Inc.json"
     },
     {
       "id": null,
@@ -269,7 +269,7 @@
       "year": 2023,
       "value": "0.0",
       "comments": null,
-      "record_url": "https://wikirate.org/Clean_Clothes_Campaign+Open_Format_for_Supply_Chain_Disclosure+Clean_Clothes_Research_Group+Sogesma_SA.json"
+      "answer_url": "https://wikirate.org/Clean_Clothes_Campaign+Open_Format_for_Supply_Chain_Disclosure+Clean_Clothes_Research_Group+Sogesma_SA.json"
     }
   ],
   "links": [

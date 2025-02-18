@@ -15,12 +15,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
-a:visited:not(.btn), a:hover:not(.btn) {
-  color: $blue;
-}
+//a:visited:not(.btn), a:hover:not(.btn) {
+//  color: $blue;
+//}
 
 
-/*----------- WikiRate Scores ---------*/
+/*----------- Wikirate Scores ---------*/
 // Note: to change these colors you will typically want to edit the +:variables
 // card on the active skin.  See note in 01_variables.scss in deckorate_core mod
 
@@ -153,16 +153,15 @@ $score-colors: (
 $colorMap: (
   metric: $metric-color,
   metric_type: $metric-color,
-  record: $record-color,
+  answer: $record-color,
   company: $company-color,
   topic: $topic-color,
   source: $source-color,
   project: $project-color,
-  // answer: $answer-color,
   research_group: $research-group-color,
   company_group: $company-group-color,
   year: $year-color,
-  datum_set: $dataset-color,
+  dataset: $dataset-color,
   datum_subset: $dataset-color,
   user: $user-color
 ); // border color for bars and boxes
@@ -236,33 +235,33 @@ $lightMap: (
     }
   }
 
-  .bar, .box {
-    &:hover .RIGHT-#{$type} {
-      &.labeled-badge {
-        label {
-          color: $color
-        }
-        .badge {
-          background-color: $color !important;
-        }
-      }
-    }
-  }
+  //.bar, .box {
+  //  &:hover .RIGHT-#{$type} {
+  //    &.labeled-badge {
+  //      label {
+  //        color: $color
+  //      }
+  //      .badge {
+  //        background-color: $color !important;
+  //      }
+  //    }
+  //  }
+  //}
 
   //#main > .SELF-#{$type}.titled-view > .d0-card-header > h1 {
   //  color: $color;
   //}
 
-  #homepage {
-    .SELF-#{$type} { // , .TYPE-#{$type} {
-      &.thumbnail .image-box {
-        background-color: map-get($lightMap, $color);
-        i {
-          color: $color;
-        }
-      }
-    }
-  }
+  //#homepage {
+  //  .SELF-#{$type} { // , .TYPE-#{$type} {
+  //    &.thumbnail .image-box {
+  //      background-color: map-get($lightMap, $color);
+  //      i {
+  //        color: $color;
+  //      }
+  //    }
+  //  }
+  //}
 }
 
 .LTYPE_RTYPE-topic-company {
@@ -307,8 +306,8 @@ $lightMap: (
 
 @include hoverTag(topic, $topic-color);
 @include hoverTag(company, $company-color);
-@include hoverTag(wikirate_topic, $topic-color);
-@include hoverTag(wikirate_company, $company-color);
+@include hoverTag(topic, $topic-color);
+@include hoverTag(company, $company-color);
 @include hoverTag(company_group, $company-group-color);
 @include hoverTag(metric, $metric-color);
 @include hoverTag(project, $project-color);
@@ -350,7 +349,7 @@ $lightMap: (
   }
 }
 
-// Score / WikiRating colors
+// Score / Rating colors
 
 @each $score, $color in $score-colors {
   .score-color-#{$score} {
@@ -422,4 +421,15 @@ $lightMap: (
 
 .light-grey-color-2 {
   color: $gray-500;
+}
+
+// TODO move variables at top to variables file and change
+// $accordion-button-active-bg to $light-purple
+// and get rid of this
+.filter-form {
+  .accordion-button {
+    &:not(.collapsed) {
+      background-color: $light-purple;
+    }
+  }
 }

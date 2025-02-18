@@ -29,26 +29,29 @@ end
 
 event :join_group, :validate, trigger: :required do
   abort :failure, "cannot join this group" unless ok_to_join?
-  add_item Auth.current.name
+  add_item! Auth.current.name
+  abort :success
 end
 
 event :leave_group, :validate, trigger: :required do
-  drop_item Auth.current.name
+  drop_item! Auth.current.name
+  abort :success
 end
 
 format do
   def contribution_counts member
-    CONTRIBUTION_CATEGORIES.map do |category|
-      card.left.contribution_count member.name, :metric_answer, category
+    Error.rescue_card member do
+      CONTRIBUTION_CATEGORIES.map do |category|
+        card.left.contribution_count member.name, :answer, category
+      end
     end
-  rescue StandardError => e
-    Card::Error.report e, member
-    count_errors
   end
-
-  def count_errors
-    CONTRIBUTION_CATEGORIES.size.times.with_object([]) { |_num, arr| arr << "ERROR" }
-  end
+  # rescue StandardError => e
+  #   Card::Error.report e, member
+  #   count_errors
+  # def count_errors
+  #   CONTRIBUTION_CATEGORIES.size.times.with_object([]) { |_num, arr| arr << "ERROR" }
+  # end
 end
 
 format :html do

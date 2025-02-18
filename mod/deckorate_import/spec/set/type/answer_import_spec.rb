@@ -1,7 +1,7 @@
 RSpec.describe Card::Set::Type::AnswerImport do
   describe "import!" do
     let(:import_item_class) { Card::AnswerImportItem }
-    let(:import_card) { Card["answer import test"] }
+    let(:import_card) { :answer_import_test.card }
     let(:status) { import_card.import_status_card.status }
 
     def import_ready_items
@@ -24,7 +24,7 @@ RSpec.describe Card::Set::Type::AnswerImport do
       import_ready_items
       answer_id = status.item_hash(status.status_indices(:imported).first)[:id]
       answer = Answer.for_card(answer_id)
-      expect(answer.imported).to eq true
+      expect(answer.route).to eq(Answer.route_index(:import))
     end
   end
 end

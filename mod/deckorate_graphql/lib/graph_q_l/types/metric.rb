@@ -15,7 +15,7 @@ module GraphQL
       field :range, String, null: true
       field :formula, String, null: true
       field :report_type, String, null: true
-      lookup_field :answer, Answer, :metric_answer, true
+      lookup_field :answer, Answer, :answer, true
       field :topics, [Topic], null: false
       field :datasets, [Dataset], null: false
 
@@ -36,7 +36,7 @@ module GraphQL
       end
 
       def topics
-        object.wikirate_topic_card.item_cards
+        object.topic_card.item_cards
       end
 
       def datasets

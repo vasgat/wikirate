@@ -6,7 +6,7 @@ class Answer
     def fetch_latest
       return true unless (latest_year = latest_year_in_db)
       new_latest = latest_year <= fetch_year
-      handle_latest_in_record latest_year, new_latest
+      handle_latest_in_answer latest_year, new_latest
       new_latest
     end
 
@@ -14,10 +14,10 @@ class Answer
     def latest_context
       self.company_id ||= fetch_company_id
       self.metric_id ||= fetch_metric_id
-      Answer.where(company_id: company_id, metric_id: metric_id).where.not(id: id)
+      ::Answer.where(company_id: company_id, metric_id: metric_id).where.not(id: id)
     end
 
-    def handle_latest_in_record latest_year, new_latest
+    def handle_latest_in_answer latest_year, new_latest
       if new_latest && !latest # changed from not latest to latest
         latest_to_false
       elsif latest && !new_latest # changed from latest to not latest

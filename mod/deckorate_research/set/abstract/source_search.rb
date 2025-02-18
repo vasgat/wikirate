@@ -4,6 +4,7 @@ include_set Abstract::CqlSearch
 include_set Abstract::SearchViews
 include_set Abstract::DeckorateFiltering
 include_set Abstract::CommonFilters
+include_set Abstract::BarBoxToggle
 
 def item_type_id
   SourceID
@@ -21,7 +22,7 @@ format do
   end
 
   def sort_options
-    { "Recently Added": :create, "Title": :title, "Most Answers": :answer }
+    { "Recently Added": :create, "Title": :title, "Most Data Points": :answer }
   end
 
   def default_sort_option
@@ -29,7 +30,7 @@ format do
   end
 
   def filter_map
-    %i[report_type year wikirate_link company_name]
+    %i[report_type year wikirate_link company]
       .unshift key: :wikirate_title, open: true
   end
 end
@@ -59,17 +60,22 @@ format :html do
 end
 
 # cql for filtering sources
-class SourceFilterCql < WikirateFilterCql
+class SourceFilterCql < DeckorateFilterCql
   def wikirate_link_cql value
-    matching_field WikirateLinkID, value
+    matching_field WikirateLinkID, :eq, value
   end
 
   def wikirate_title_cql value
-    matching_field WikirateTitleID, value
+    matching_field WikirateTitleID, :match, value
   end
 
-  def company_name_cql value
-    matching_field WikirateCompanyID, value
+  # def company_name_cql value
+  #   matching_field CompanyID, value
+  # end
+
+  def company_cql value
+    value = [:in] + Array.wrap(value)
+    add_to_cql :right_plus, [:company, { refer_to: value }]
   end
 
   def report_type_cql value
@@ -83,7 +89,8 @@ class SourceFilterCql < WikirateFilterCql
 
   private
 
-  def matching_field field_id, value
-    add_to_cql :right_plus, [field_id, { content: [:match, value] }] if value.present?
+  def matching_field field_id, operator, value
+    return unless value.present?
+    add_to_cql :right_plus, [field_id, { content: [operator, ":#{value}"] }]
   end
 end

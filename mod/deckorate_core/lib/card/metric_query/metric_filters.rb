@@ -5,10 +5,9 @@ class Card
       def filter_by_topic value
         restrict_by_cql(
           :topic, :metric_id,
-          right: :wikirate_topic, refer_to: ["in", value].flatten, return: :left_id
+          right: :topic, refer_to: ["in", value].flatten, return: :left_id
         )
       end
-      alias_method :filter_by_wikirate_topic, :filter_by_topic
 
       def filter_by_dataset value
         dataset_restriction :metric_id, :metric, value
@@ -16,6 +15,14 @@ class Card
 
       def filter_by_bookmark value
         bookmark_restriction :metric_id, value
+      end
+
+      def filter_by_metric_keyword value
+        restrict_by_cql :title, "title_id", name: [:match, value]
+      end
+
+      def filter_by_metric value
+        filter :metric_id, Array.wrap(value).map(&:card_id)
       end
 
       # note: :false and "false" work; false doesn't (can't survive #process_filter)
@@ -35,7 +42,7 @@ class Card
 
       private
 
-      # WikiRate team members are stewards of all metrics
+      # Wikirate team members are stewards of all metrics
       def stewards_all?
         Auth.always_ok? || Auth.current.stewards_all?
       end
@@ -60,7 +67,7 @@ class Card
         @filter_args[:published] = true unless @filter_args.key? :published
       end
 
-      # also used by metric_and_company_filters.rb
+      # also used by metric_filters.rb
       def dataset_restriction field, codename, dataset
         restrict_by_cql "metric_#{field}", field,
                         referred_to_by: "#{dataset}+#{codename.cardname}"
@@ -71,7 +78,7 @@ class Card
         filter :year, years if years.present?
       end
 
-      # also used by metric_and_company_filters.rb
+      # also used by metric_filters.rb
       def bookmark_restriction field, value
         Card::Bookmark.id_restriction(value.to_sym == :bookmark) do |restriction|
           operator = restriction.shift # restriction looks like cql, eg ["in", 1, 2]

@@ -1,10 +1,10 @@
 include_set Abstract::MetricChild, generation: 1
 include_set Abstract::DeckorateTabbed
 
-card_accessor :metric_answer
+card_accessor :answer
 
-event :update_lookups_on_record_rename, :finalize, changed: :name, on: :update do
-  metric_answer_card.search.each(&:refresh)
+event :update_lookups_on_answer_rename, :finalize, changed: :name, on: :update do
+  answer_card.search.each(&:refresh)
 end
 
 def virtual?
@@ -12,7 +12,13 @@ def virtual?
 end
 
 def answers
-  metric_answer_card.search
+  answer_card.search
+end
+
+private
+
+def expire_left?
+  false
 end
 
 format do
@@ -21,7 +27,7 @@ end
 
 format :html do
   def tab_list
-    %i[metric_answer metric wikirate_company]
+    %i[answer metric company]
   end
 
   def tab_options
@@ -35,15 +41,15 @@ format :html do
             nest(card.company_card, view: :thumbnail)]
   end
 
-  view :metric_answer_tab do
-    field_nest :metric_answer, view: :filtered_content
+  view :answer_tab do
+    field_nest :answer, view: :filtered_content
   end
 
   view :metric_tab do
     nest card.metric_card, view: :details_tab
   end
 
-  view :wikirate_company_tab do
+  view :company_tab do
     nest card.company_card, view: :details_tab
   end
 end

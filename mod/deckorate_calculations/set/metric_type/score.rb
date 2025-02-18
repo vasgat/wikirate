@@ -7,7 +7,7 @@ delegate :calculator_class, to: :formula_card
 
 event :validate_score_name, :validate, changed: :name, on: :save do
   errors.add :name, "#{scoree} is not a metric" unless scoree_card&.type_id == MetricID
-  # can't be company because Metric+Company is a record
+  # can't be company because Metric+Company is an answer
   unless scorer_card&.type_id.in? [UserID, ResearchGroupID]
     errors.add :name, "Invalid Scorer: #{scorer}; must be a User or Research Group"
   end
@@ -99,7 +99,7 @@ def normalize_value value
 end
 
 def calculation_types
-  %i[wiki_rating formula descendant]
+  %i[rating formula descendant]
 end
 
 def input_metrics_and_detail

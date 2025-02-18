@@ -1,9 +1,9 @@
-# handles company fields (eg headquarters) that are duplicated as metric answers
+# handles company fields (eg headquarters) that are duplicated as metric answer
 #
 # includer must define #metric code
 
 event :update_company_field_answer_lookup, :finalize do
-  metric_card&.deep_answer_update company_id: answer_company_id, year: answer_year
+  metric_card&.calculate_answers company_id: answer_company_id, year: answer_year
 end
 
 def metric_code
@@ -11,8 +11,9 @@ def metric_code
 end
 
 def metric_card
+  return if Array.wrap(metric_code).find { |mc| !Codename.exist? mc }
   # conditional needed for seeding.
-  Card[metric_code] if Codename.exist? metric_code
+  metric_code.card
 end
 
 def answer_company_id

@@ -40,7 +40,7 @@
     },
     {
       "name": "counts",
-      "source": "answers",
+      "source": "answer",
       "transform": [
         {
           "type": "filter",

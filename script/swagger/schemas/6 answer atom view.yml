@@ -30,7 +30,7 @@ answer_atom_view:
       example: '352755000000'
     comments:
       type: string
-    record_url:
+    answer_url:
       type: string
       example: https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json
     requested_at:

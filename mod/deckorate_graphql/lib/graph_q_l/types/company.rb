@@ -3,13 +3,13 @@ module GraphQL
     # Company type for GraphQL
     class Company < DeckorateCard
       field :headquarters, String, null: true
-      lookup_field :answer, Answer, :metric_answer, true
+      lookup_field :answer, Answer, :answer, true
       field :relationships, [Relationship],
             "relationships of which company is either subject or object", null: true
       field :datasets, [Dataset], null: false
       field :logo_url, String, "url for company logo image", null: true
 
-      ::Card::Set::Type::CorporateIdentifier.names.each do |identifier|
+      ::Card::Set::Type::CompanyIdentifier.names.each do |identifier|
         field identifier.parameterize(separator: "_").to_sym, String, null: true
       end
 
@@ -24,7 +24,7 @@ module GraphQL
       end
 
       def datasets
-        referers :dataset, :wikirate_company
+        referers :dataset, :company
       end
 
       def logo_url

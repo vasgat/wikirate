@@ -1,9 +1,9 @@
 $ ->
-  $("body").on "shown.bs.collapse", ".tree-collapse", (el) ->
-    expandNextStubs $(el.target)
+  $("body").on "shown.bs.collapse", ".tree-collapse", (event) ->
+    expandNextStubs $(event.target)
 
 decko.slot.ready (slot)->
-  expandNextStubs slot
+  # expandNextStubs slot
 
 # the idea here is to avoid the expend of expanding all levels of a multi-level
 # acccordion, because that is pretty resource-intensive. But instead to make sure

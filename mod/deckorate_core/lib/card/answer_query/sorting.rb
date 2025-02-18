@@ -8,7 +8,7 @@ class Card
         company_name: :company_id
       }.freeze
 
-      def sort_by_join sort_by, _from_table, from_id_field
+      def sort_by_cardname_join sort_by, _from_table, from_id_field
         return super unless sort_by.to_s.match?(/^metric/)
 
         @sort_joins << :metric
@@ -34,7 +34,7 @@ class Card
       end
 
       def numeric_sort?
-        single_metric? && (metric_card.numeric? || metric_card.relationship?)
+        single_metric? && (metric_card.numeric? || metric_card.relation?)
       end
     end
   end

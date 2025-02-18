@@ -25,13 +25,13 @@ format :html do
       bookmark_quick_filter + topic_quick_filters + dataset_quick_filters
   end
 
-  def default_sort_option
-    :metric_title
-  end
+  # def default_sort_option
+  #   :metric_title
+  # end
 
-  def secondary_sort
-    @secondary_sort ||= FULL_ANSWER_SECONDARY_SORT[sort_by] || super
-  end
+  # def secondary_sort
+  #   @secondary_sort ||= FULL_ANSWER_SECONDARY_SORT[sort_by] || super
+  # end
 
   def bookmark_type
     :todo
@@ -40,7 +40,7 @@ format :html do
   # def bookmark_quick_filters
   #   return [] unless my_bookmarks?
   #
-  #   %i[wikirate_company metric].map do |codename|
+  #   %i[company metric].map do |codename|
   #     { bookmark: :bookmark,
   #       text: "My #{codename.cardname} Bookmarks",
   #       class: "quick-filter-by-#{codename}" }

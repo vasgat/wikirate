@@ -109,6 +109,9 @@ $(document).ready ->
     toPhase "question", e
     $("._methodology-button").click()
 
+  $("body").on "click", "._metric_arrow_button", (e) ->
+    $(this).slot().slotReloading()
+
 closeSourceModal = (el)->
   bootstrap.Modal.getInstance(el.closest("._modal-slot")).hide()
 
@@ -172,7 +175,7 @@ selectedYear = ()->
   selectedYearInput().val() || $(".answer-breadcrumb .year").html()
 
 selectedYearNotResearched = ->
-  selectedYearInput().closest("._research-year-option").find(".not-researched")[0]
+  selectedYearInput().closest("._research-year-option").find("._not-researched")[0]
 
 selectedYearInput = ->
   $("input[name='year']:checked")
@@ -215,7 +218,7 @@ deckorate.tabPhase = tabPhase
 
 # add related company to name
 # otherwise the card can get the wrong type because it
-# matches the ltype_rtype/record/year pattern
+# matches the ltype_rtype/answer/year pattern
 #  $("body").on "submit", "form.answer-form", (e) ->
 #    $form = $(e.target)
 #    related_company = $form.find("#card_subcards__related_company_content")

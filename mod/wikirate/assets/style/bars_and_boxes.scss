@@ -1,27 +1,34 @@
 /*------ Badges ---------*/
 
-.badge {
-  display: inline-block;
-  //align-items: center;
-  padding: 0.1rem 0.4rem;
-  line-height: inherit;
-}
-
 .labeled-badge {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0.1em;
-  color: $text-muted;
   label {
     margin: 0;
     padding: 0 0.33rem;
-    .count-badge-label-icon {
+    .count-badge-label-text {
       display: none;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    flex-direction: column-reverse;
+    .badge {
+      margin-bottom: 0.8em;
     }
   }
 }
 
+.box, .item-box {
+  min-width: 320px;
+  max-width: 400px;
+  width: 100%
+}
+
+.box-bottom .labeled-badge .badge {
+  background-color: $gray-200 !important;
+}
 
 .filter-result-badges {
   display: flex;
@@ -29,6 +36,11 @@
   max-height: 1.8em;
   .labeled-badge {
     padding-left: 1em;
+    @include media-breakpoint-down(md) {
+      .count-badge-label-icon {
+        display: none !important;
+      }
+    }
   }
 }
 
@@ -60,12 +72,9 @@
     align-items: center;
   }
 
-  .labeled-badge, .bookmark-toggle {
-    margin-left: 1em;
-  }
   .labeled-badge {
-    span {
-      font-size: 0.6em;
+    .bookmark-toggle {
+      margin-left: 1em;
     }
   }
 }
@@ -74,11 +83,11 @@
   border-left-color: $primary;
 }
 
-.bar-left a {
-  &, .bar-left {
-    font-weight: 600;
+.bar-left {
+  font-weight: normal;
+  a {
+    color: inherit;
   }
-  color: inherit;
 }
 
 .box-bottom {

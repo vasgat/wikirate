@@ -10,25 +10,25 @@ Card::Auth.as_bot
 
 def validate answer_id
   answer = answer_id.card
-  return if answer.relationship? || answer.calculated?
+  return if answer.relation? || answer.calculated?
 
   validate_value answer.value_card
 rescue StandardError => e
-  record_invalid answer_id, "ERROR", e.message
+  answer_invalid answer_id, "ERROR", e.message
 end
 
 def validate_value val
   return if Answer.unknown?(val.content) || !val.illegal_items.present?
 
-  record_invalid answer_id, "INVALID", val.content
+  answer_invalid answer_id, "INVALID", val.content
 end
 
 def milestones seq
   puts "TRACK SEQ: #{seq}" if (seq % 1000).zero?
-  Card::Cache.reset_soft
+  Card::Cache.reset_temp
 end
 
-def record_invalid answer_id, type, msg
+def answer_invalid answer_id, type, msg
   url = "#{SITE}/~#{answer_id}"
   puts "#{type}: #{url}"
   File.open FILENAME, "a" do |file|
@@ -36,7 +36,7 @@ def record_invalid answer_id, type, msg
   end
 end
 
-Metric.joins("join answers on metrics.metric_id = answers.metric_id")
+Metric.joins("join answer on metrics.metric_id = answer.metric_id")
       .where(value_type_id: VALUE_TYPES.map(&:card_id),
              metric_type_id: METRIC_TYPES.map(&:card_id))
       .select(:answer_id).offset(OFFSET)

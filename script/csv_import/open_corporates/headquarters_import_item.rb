@@ -12,7 +12,7 @@ class HeadquartersImportItem < ImportItem
 
   def validate_wikirate_number value
     value.number? && (@company = Card[value.to_i]) &&
-      @company.type_id == Card::WikirateCompanyID
+      @company.type_id == Card::CompanyID
   end
 
   def validate_oc_jurisdiction_code value
@@ -25,7 +25,7 @@ class HeadquartersImportItem < ImportItem
 
   def import_headquarters
     ensure_card [@company, :headquarters],
-                content: Card[oc_jurisdiction_code].name,
+                content: oc_jurisdiction_code.cardname,
                 type: :pointer,
                 skip: :update_oc_mapping_due_to_headquarters_entry
   end

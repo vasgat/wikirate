@@ -7,7 +7,7 @@ card_accessor :organizer, type: :list
 card_accessor :researcher, type: :list
 card_accessor :project, type: :search_type
 card_accessor :metric, type: :search_type
-card_accessor :wikirate_topic, type: :list
+card_accessor :topic, type: :list
 card_reader :metrics_designed, type: :search_type
 card_reader :projects_organized, type: :search_type
 
@@ -21,7 +21,7 @@ end
 
 def contribution_count member, cardtype, category
   return 0 if projects.empty?
-  return "" if category == :double_checked && cardtype != :metric_answer
+  return "" if category == :double_checked && cardtype != :answer
   report_card(member, cardtype, category).count
 end
 
@@ -34,7 +34,7 @@ format :html do
     voo.edit_structure = [
       :image,
       :organizer,
-      :wikirate_topic,
+      :topic,
       :description
     ]
   end
@@ -46,7 +46,7 @@ format :html do
   end
 
   def topic_detail
-    labeled_field :wikirate_topic, :link, title: "Topics"
+    labeled_field :topic, :link, title: "Topics"
   end
 
   def thumbnail_subtitle
@@ -58,7 +58,7 @@ format :html do
   end
 
   view :metric_tab do
-    field_nest :metric, items: { view: :bar }
+    field_nest :metric, view: :filtered_content
   end
 
   view :project_tab do
@@ -69,16 +69,12 @@ format :html do
     field_nest :researcher, view: :overview
   end
 
-  view :details_tab do
-    render_details
-  end
-
   view :bar_left do
     render_thumbnail
   end
 
   view :bar_middle do
-    result_middle { field_nest :wikirate_topic, items: { view: :link } }
+    result_middle { field_nest :topic, items: { view: :link } }
   end
 
   view :bar_right do
@@ -86,16 +82,29 @@ format :html do
   end
 
   view :bar_bottom do
-    render_details
+    [render_details_tab_right, render_details_tab_left]
+  end
+
+  view :box_middle do
+    field_nest :image, view: :core, size: :medium
+  end
+
+  view :box_bottom do
+    count_badges(:researcher, :project, :metric)
   end
 
   view :one_line_content do
     ""
   end
 
-  view :details do
-    [labeled_fields { [organizer_detail, topic_detail] },
-     field_nest(:description, view: :titled),
-     field_nest(:conversation, items: { view: :link })]
+  view :details_tab_left do
+    [
+      field_nest(:description, view: :titled),
+      field_nest(:conversation, items: { view: :link })
+    ]
+  end
+
+  view :details_tab_right do
+    labeled_fields { [organizer_detail, topic_detail] }
   end
 end

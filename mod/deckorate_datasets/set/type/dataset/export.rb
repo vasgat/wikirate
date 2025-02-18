@@ -20,7 +20,7 @@ end
 
 format :csv do
   view :titled do
-    field_nest :metric_answer, view: :titled
+    field_nest :answer, view: :titled
   end
 
   view :import_template do
@@ -28,13 +28,13 @@ format :csv do
       [CSV.generate_line(Card::AnswerImportItem.headers)] +
         card.companies.map do |company|
           card.metrics.map do |metric|
-            import_record_lines metric, company
+            import_answer_lines metric, company
           end
         end
     ).join
   end
 
-  def import_record_lines metric, company
+  def import_answer_lines metric, company
     if card.years.present?
       card.years.map { |year| import_answer_line metric, company, year }
     else
@@ -51,13 +51,13 @@ format :json do
   # note: if this returned answer objects, it would put answer ids (not card ids) in the
   # json results
   # def item_cards
-  #   card.answers.map(&:card)
+  #   card.answer.map(&:card)
   # end
 
   def molecule
-    super().merge answers_url: json_field_link(:metric_answer),
+    super().merge answers_url: json_field_link(:answer),
                   metrics_url: json_field_link(:metric),
-                  companies_url: json_field_link(:wikirate_company)
+                  companies_url: json_field_link(:company)
   end
 
   def json_field_link fieldcode

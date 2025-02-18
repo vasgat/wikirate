@@ -19,7 +19,7 @@ metric_atom_view:
     title:
       type: string
       example: CEO to Worker pay
-    answers_url:
+    answer_url:
       type: string
       example: https://wikirate.org/PayScale+CEO_to_Worker_pay+answer.json
     ancestors:
@@ -79,7 +79,7 @@ metric_atom_view:
       type: string
     variables:
       type: string
-    answers:
+    answer:
       type: integer
     bookmarkers:
       type: integer

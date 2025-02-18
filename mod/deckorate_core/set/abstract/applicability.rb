@@ -14,9 +14,9 @@ end
 
 event :enforce_applicability_to_calculations, :integrate_with_delay,
       skip: :allowed, priority: 5, when: :calculated? do
-  metric_card.deep_answer_update unless metric_card.action.in? %i[create delete]
+  metric_card.calculate_answers unless metric_card.action.in? %i[create delete]
 end
 
 def researched_answers
-  Answer.where "metric_id = #{metric_id} AND answer_id IS NOT NULL"
+  ::Answer.where "metric_id = #{metric_id} AND answer_id IS NOT NULL"
 end

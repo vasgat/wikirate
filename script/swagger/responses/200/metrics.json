@@ -53,7 +53,7 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 4766,
+      "answer": 4766,
       "bookmarkers": 92,
       "datasets": 136,
       "companies": 1491,
@@ -73,7 +73,7 @@
         "https://wikirate.org/Laureen_van_Breen+Scope_1_GHG_over_number_of_employees.json",
         "https://wikirate.org/Gershon_M_Bialer+CO2e_Intensity.json"
       ],
-      "answers_url": "https://wikirate.org/Global_Reporting_Initiative+Direct_greenhouse_gas_GHG_emissions_Scope_1_GRI_305_1_a_formerly_G4_EN15_a+Answer.json"
+      "answer_url": "https://wikirate.org/Global_Reporting_Initiative+Direct_greenhouse_gas_GHG_emissions_Scope_1_GRI_305_1_a_formerly_G4_EN15_a+Answer.json"
     },
     {
       "id": 801383,
@@ -84,7 +84,7 @@
       "title": "Environmental Fines, GRI 307-1 (formerly G4-EN29-a)",
       "question": "What is the total monetary value (in USD) of significant fines for non-compliance with environmental laws and regulations incurred by the organization?",
       "metric_type": "Researched",
-      "about": "<p>This metric is based on the Global Reporting Initiative (GRI) Standard Guidelines. <br><br>In the context of the GRI Standards, the environmental dimension of sustainability concerns an organization’s impacts on living and non-living natural systems, including land, air, water, and ecosystems.<br><br>GRI 307 addresses the topic of environmental compliance, covering an organization’s compliance with environmental laws and/or regulations. This includes compliance with international declarations, conventions and treaties, as well as national, sub-national, regional, and local regulations. <br><br>Non-compliance within an organization can indicate the ability of management to ensure that operations conform to certain performance parameters. In some circumstances, non-compliance can lead to clean-up obligations or other costly environmental liabilities. The strength of an organization’s compliance record can also affect its ability to expand operations or gain permits.<br><br></p>\r\n<p><em>*In 2018, the GRI G4 Sustainability Reporting Guidelines were superseded by the GRI Sustainability Reporting Standards (GRI standards). For this metric, the code G4-EN29 is used in company reporting prior to 2018, and the new GRI 307-1 code used in reporting from 2018 onwards. The methodology for the former G4 standard for this metric can be found [[https://wikirate.org/Environmental%20fines%20(G4-EN29-a)%20Methodology|here]].</em></p>",
+      "about": "<p>This metric is based on the Global Reporting Initiative (GRI) Standard Guidelines. <br><br>In the context of the GRI Standards, the environmental dimension of sustainability concerns an organization’s impacts on living and non-living natural systems, including land, air, water, and ecosystems.<br><br>GRI 307 addresses the topic of environmental compliance, covering an organization’s compliance with environmental laws and/or regulations. This includes compliance with international declarations, conventions and treaties, as well as national, sub-national, regional, and local regulations. <br><br>Non-compliance within an organization can indicate the ability of management to ensure that operations conform to certain performance parameters. In some circumstances, non-compliance can lead to clean-up obligations or other costly environmental liabilities. The strength of an organization’s compliance answer can also affect its ability to expand operations or gain permits.<br><br></p>\r\n<p><em>*In 2018, the GRI G4 Sustainability Reporting Guidelines were superseded by the GRI Sustainability Reporting Standards (GRI standards). For this metric, the code G4-EN29 is used in company reporting prior to 2018, and the new GRI 307-1 code used in reporting from 2018 onwards. The methodology for the former G4 standard for this metric can be found [[https://wikirate.org/Environmental%20fines%20(G4-EN29-a)%20Methodology|here]].</em></p>",
       "methodology": "<p>To identify the monetary value of significant fines look for:</p>\r\n<p>-Significant fines and non-monetary sanctions for non-compliance with environmental laws and/or regulations in terms of total monetary value of significant fines.</p>\r\n<p><br>If the organization has not identified any non-compliance with environmental laws and/or regulations, look for their statement of this fact and cite it in the comments section.<br><br><strong>Keywords and search terms for this metric:</strong> <br><br>- Environmental<br>- Compliance<br>- Fines<br>- 307<br>- GRI<br>- GRI Index<br><br>Always include the page number where you found the answer in the Comments field below. Select the 'Unknown' answer box if the company has not published the data. <br><br><strong>Units</strong><br><br>The reporting unit is US Dollars. If the value is reported different currency please consult <a href=\"https://www.ofx.com/en-gb/forex-news/historical-exchange-rates/yearly-average-rates/\">this page</a> to find the conversion rate to use according to the company's reporting year. Once you have found the correct conversion rate, multiply that number by your answer to get the USD rate. Include this calculation in your comments.</p>",
       "value_type": "Money",
       "value_options": [
@@ -109,7 +109,7 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 3137,
+      "answer": 3137,
       "bookmarkers": 62,
       "datasets": 75,
       "companies": 1231,
@@ -120,7 +120,7 @@
         "https://wikirate.org/University_of_Wollongong_Research_Group_2020+Wollongong_2020_Climate_Disclosure_Rate.json",
         "https://wikirate.org/Apparel_Research_Group+Environmental_Damage_Protection_Disclosure_Rate.json"
       ],
-      "answers_url": "https://wikirate.org/Global_Reporting_Initiative+Environmental_Fines_GRI_307_1_formerly_G4_EN29_a+Answer.json"
+      "answer_url": "https://wikirate.org/Global_Reporting_Initiative+Environmental_Fines_GRI_307_1_formerly_G4_EN29_a+Answer.json"
     },
     {
       "id": 826629,
@@ -163,7 +163,7 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 4501,
+      "answer": 4501,
       "bookmarkers": 55,
       "datasets": 125,
       "companies": 1455,
@@ -180,7 +180,7 @@
         "https://wikirate.org/Apparel_Research_Group+Emissions_Disclosure_Rate.json",
         "https://wikirate.org/Gershon_M_Bialer+CO2e_Intensity.json"
       ],
-      "answers_url": "https://wikirate.org/Global_Reporting_Initiative+Indirect_greenhouse_gas_GHG_emissions_Scope_2_GRI_305_2_formerly_G4_EN16_a+Answer.json"
+      "answer_url": "https://wikirate.org/Global_Reporting_Initiative+Indirect_greenhouse_gas_GHG_emissions_Scope_2_GRI_305_2_formerly_G4_EN16_a+Answer.json"
     },
     {
       "id": 3094828,
@@ -217,14 +217,14 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 1694,
+      "answer": 1694,
       "bookmarkers": 52,
       "datasets": 97,
       "companies": 710,
       "calculations": [
         "https://wikirate.org/Apparel_Research_Group+Business_Model_Disclosure_Rate.json"
       ],
-      "answers_url": "https://wikirate.org/Core+Company_Report_Available+Answer.json"
+      "answer_url": "https://wikirate.org/Core+Company_Report_Available+Answer.json"
     },
     {
       "id": 836952,
@@ -265,7 +265,7 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 3302,
+      "answer": 3302,
       "bookmarkers": 46,
       "datasets": 89,
       "companies": 1242,
@@ -285,7 +285,7 @@
         "https://wikirate.org/Higher_School_of_Economics_Research_Group_2020+From_Farm_to_Fork_2020_Disclosure_Rate.json",
         "https://wikirate.org/Apparel_Research_Group+Energy_Disclosure_Rate.json"
       ],
-      "answers_url": "https://wikirate.org/Global_Reporting_Initiative+Fuel_consumption_from_non_renewable_sources_GRI_302_1_a_formerly_G4_EN3_a+Answer.json"
+      "answer_url": "https://wikirate.org/Global_Reporting_Initiative+Fuel_consumption_from_non_renewable_sources_GRI_302_1_a_formerly_G4_EN3_a+Answer.json"
     },
     {
       "id": 836097,
@@ -323,7 +323,7 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 3920,
+      "answer": 3920,
       "bookmarkers": 44,
       "datasets": 88,
       "companies": 1798,
@@ -345,7 +345,7 @@
         "https://wikirate.org/University_of_Sydney_SDG_Research_Group_2021+Social_Metrics_Disclosure_Rate.json",
         "https://wikirate.org/Lucia_Ixtacuy+Gender_Equality_Disclosure_Rate_Own_Operations.json"
       ],
-      "answers_url": "https://wikirate.org/Global_Reporting_Initiative+Employees_GRI_102_8_a_formerly_G4_10_a+Answer.json"
+      "answer_url": "https://wikirate.org/Global_Reporting_Initiative+Employees_GRI_102_8_a_formerly_G4_10_a+Answer.json"
     },
     {
       "id": 837254,
@@ -383,7 +383,7 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 3724,
+      "answer": 3724,
       "bookmarkers": 37,
       "datasets": 97,
       "companies": 1787,
@@ -396,7 +396,7 @@
         "https://wikirate.org/Ewha_Womans_University_Research_Group+Ewha_2020_SDG5_Disclosure_Rate.json",
         "https://wikirate.org/Lucia_Ixtacuy+Gender_Equality_Disclosure_Rate_Own_Operations.json"
       ],
-      "answers_url": "https://wikirate.org/Global_Reporting_Initiative+Male_employees_GRI_102_8_a_formerly_G4_10_a+Answer.json"
+      "answer_url": "https://wikirate.org/Global_Reporting_Initiative+Male_employees_GRI_102_8_a_formerly_G4_10_a+Answer.json"
     },
     {
       "id": 3341341,
@@ -427,7 +427,7 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 1802,
+      "answer": 1802,
       "bookmarkers": 35,
       "datasets": 80,
       "companies": 831,
@@ -435,7 +435,7 @@
         "https://wikirate.org/Commons+Employee.json",
         "https://wikirate.org/University_of_Wollongong_Research_Group_2020+Wollongong_2020_Climate_Disclosure_Rate.json"
       ],
-      "answers_url": "https://wikirate.org/Core+Employee+Answer.json"
+      "answer_url": "https://wikirate.org/Core+Employee+Answer.json"
     },
     {
       "id": 1827651,
@@ -446,7 +446,7 @@
       "title": "Modern Slavery Statement",
       "question": "Did the company produce a statement in relation to any Modern Slavery legislation or Act?",
       "metric_type": "Researched",
-      "about": "<p>This metric records whether the company produced a statement in accordance with the <strong>UK's Modern Slavery Act</strong> 2015, <strong>Australian Modern Slavery Act</strong> 2018, and/or the <strong>California Transparency in Supply Chains Act</strong>. This metric includes only some of the statements available on the <span style=\"font-weight: bolder;\">Business and Human Rights Resource Centre's</span> [[http://www.modernslaveryregistry.org/|registry of Modern Slavery Act statements]] - you are encouraged to consult the different available registries directly to find statement that are not yet available on WikiRate.</p>\r\n<p>Section 54 of the UK Modern Slavery Act requires a commercial organisation that has a turnover of over £36 million with operations in the UK to publish a slavery and human trafficking statement each year which sets out the steps it has taken to ensure there is no slavery or trafficking in its supply chains or its own business, or states that it has taken no such steps.</p>",
+      "about": "<p>This metric answer whether the company produced a statement in accordance with the <strong>UK's Modern Slavery Act</strong> 2015, <strong>Australian Modern Slavery Act</strong> 2018, and/or the <strong>California Transparency in Supply Chains Act</strong>. This metric includes only some of the statements available on the <span style=\"font-weight: bolder;\">Business and Human Rights Resource Centre's</span> [[http://www.modernslaveryregistry.org/|registry of Modern Slavery Act statements]] - you are encouraged to consult the different available registries directly to find statement that are not yet available on WikiRate.</p>\r\n<p>Section 54 of the UK Modern Slavery Act requires a commercial organisation that has a turnover of over £36 million with operations in the UK to publish a slavery and human trafficking statement each year which sets out the steps it has taken to ensure there is no slavery or trafficking in its supply chains or its own business, or states that it has taken no such steps.</p>",
       "methodology": "<p>This metric is asking whether the company has published a statement in relation to the Modern Slavery Act 2015, the California Transparency in Supply Chains Act or neither. If you can find a relevant statement give the company a \"<strong>Yes - UK Modern Slavery Act</strong>\" and/or \"<strong>Yes - Australian Modern Slavery Act</strong>\" and/or \"<strong>Yes - California Transparency in Supply Chains Act</strong>\" value and add/cite that statement as a source. There are other metrics which ask questions about whether the company's statement complies with the law and whether it contains certain kinds of information. For this metric, any statement that is intended as a \"Modern Slavery Act statement\" counts for a \"<strong>Yes</strong>\" value.</p>\r\n<p>The UK and Australian governments maintain registries of statements:</p>\r\n<ul>\r\n<li>https://modern-slavery-statement-registry.service.gov.uk/</li>\r\n<li><a href=\"https://modernslaveryregister.gov.au/\">https://modernslaveryregister.gov.au/</a></li>\r\n</ul>\r\n<p>Every quarter, WikiRate retrieves as many statements as it can from these registries using semi-automated techinques so you will find many [[https://wikirate.org/Source?filter%5Breport_type%5D=Modern%20Slavery%20Statement|statements waiting to be assessed on WikiRate]].</p>\r\n<p>Furthermore the [[https://business-humanrights.org|Business &amp; Human Rights Resource Centre]] maintains an [[https://www.modernslaveryregistry.org|archive of Modern Slavery Act statements]].</p>\r\n<p>If the company you are researching does not appear on the registries, try searching the web for terms like \"[Company name] modern slavery statement\". These statements should be linked to from a company's homepage but this is not always the case.</p>\r\n<p>These statements can be called things like:</p>\r\n<ul>\r\n<li>\r\n<p>Modern Slavery Act statement</p>\r\n</li>\r\n<li>\r\n<p>Slavery and Trafficking statement</p>\r\n</li>\r\n</ul>\r\n<p>If you cannot find a relevant statement by the company, and you believe they are required to produce one, add a new \"report\" source that explains how you searched, and give the company a value of \"<strong>No - neither</strong>\".</p>\r\n<p><span style=\"color: #ff0000;\"><strong>* Note on choosing the Year of your answer</strong></span></p>\r\n<p>Read the MSA Statement carefully to find out what year it covers.</p>\r\n<p>When a statement is referring to a Financial Year (FY) ending in Q1 or early Q2, it should be labeled with the previous year. Example:</p>\r\n<p><br>Statement for FY2018/19 ending in <strong>April </strong>2019 = 2018<br>Statement for FY2018/19 ending in <strong>May</strong> 2019 (or later) = 2019</p>\r\n<p> </p>\r\n<p><br><br></p>",
       "value_type": "Multi-Category",
       "value_options": [
@@ -474,7 +474,7 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 32590,
+      "answer": 32590,
       "bookmarkers": 33,
       "datasets": 74,
       "companies": 18691,
@@ -492,7 +492,7 @@
         "https://wikirate.org/Walk_Free+Australian_MSA_statement_assessed.json",
         "https://wikirate.org/Walk_Free+Meets_Minimum_Australian_MSA_Requirements.json"
       ],
-      "answers_url": "https://wikirate.org/Business_Human_Rights_Resource_Centre+Modern_Slavery_Statement+Answer.json"
+      "answer_url": "https://wikirate.org/Business_Human_Rights_Resource_Centre+Modern_Slavery_Statement+Answer.json"
     },
     {
       "id": 837241,
@@ -530,7 +530,7 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 4136,
+      "answer": 4136,
       "bookmarkers": 27,
       "datasets": 127,
       "companies": 1949,
@@ -548,7 +548,7 @@
         "https://wikirate.org/University_of_Sydney_SDG_Research_Group_2021+Social_Metrics_Disclosure_Rate.json",
         "https://wikirate.org/Lucia_Ixtacuy+Gender_Equality_Disclosure_Rate_Own_Operations.json"
       ],
-      "answers_url": "https://wikirate.org/Global_Reporting_Initiative+Female_employees_GRI_102_8_a_formerly_G4_10_a+Answer.json"
+      "answer_url": "https://wikirate.org/Global_Reporting_Initiative+Female_employees_GRI_102_8_a_formerly_G4_10_a+Answer.json"
     },
     {
       "id": 169665,
@@ -584,14 +584,14 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 295,
+      "answer": 295,
       "bookmarkers": 27,
       "datasets": 0,
       "companies": 279,
       "calculations": [
         "https://wikirate.org/Commons+Greenhouse_Gas_Emissions_Scope_2.json"
       ],
-      "answers_url": "https://wikirate.org/CDP+Scope_2_Emissions+Answer.json"
+      "answer_url": "https://wikirate.org/CDP+Scope_2_Emissions+Answer.json"
     },
     {
       "id": 836274,
@@ -631,7 +631,7 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 2360,
+      "answer": 2360,
       "bookmarkers": 26,
       "datasets": 70,
       "companies": 1007,
@@ -640,7 +640,7 @@
         "https://wikirate.org/Nottingham_Trent_SDG_Summer_School_2019_Research_Group+Nottingham_Trent_SDG_Disclosure_Rate.json",
         "https://wikirate.org/Apparel_Research_Group+Waste_Disclosure_Rate.json"
       ],
-      "answers_url": "https://wikirate.org/Global_Reporting_Initiative+Hazardous_Waste_Recycled_GRI_306_2_a_formerly_G4_EN23_a+Answer.json"
+      "answer_url": "https://wikirate.org/Global_Reporting_Initiative+Hazardous_Waste_Recycled_GRI_306_2_a_formerly_G4_EN23_a+Answer.json"
     },
     {
       "id": 1522301,
@@ -683,7 +683,7 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 2478,
+      "answer": 2478,
       "bookmarkers": 24,
       "datasets": 53,
       "companies": 924,
@@ -693,7 +693,7 @@
         "https://wikirate.org/Nottingham_Trent_SDG_Summer_School_2019_Research_Group+Nottingham_Trent_SDG_Disclosure_Rate.json",
         "https://wikirate.org/Higher_School_of_Economics_Research_Group_2020+From_Farm_to_Fork_2020_Disclosure_Rate.json"
       ],
-      "answers_url": "https://wikirate.org/Global_Reporting_Initiative+Environmental_Protection_Expenditures_G4_EN31_a+Answer.json"
+      "answer_url": "https://wikirate.org/Global_Reporting_Initiative+Environmental_Protection_Expenditures_G4_EN31_a+Answer.json"
     },
     {
       "id": 836246,
@@ -734,7 +734,7 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 2737,
+      "answer": 2737,
       "bookmarkers": 23,
       "datasets": 85,
       "companies": 1021,
@@ -746,7 +746,7 @@
         "https://wikirate.org/Higher_School_of_Economics_Research_Group_2020+From_Farm_to_Fork_2020_Disclosure_Rate.json",
         "https://wikirate.org/Apparel_Research_Group+Waste_Disclosure_Rate.json"
       ],
-      "answers_url": "https://wikirate.org/Global_Reporting_Initiative+Hazardous_Waste_Created_GRI_306_2_formerly_G4_EN23_a+Answer.json"
+      "answer_url": "https://wikirate.org/Global_Reporting_Initiative+Hazardous_Waste_Created_GRI_306_2_formerly_G4_EN23_a+Answer.json"
     },
     {
       "id": 849642,
@@ -790,7 +790,7 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 2991,
+      "answer": 2991,
       "bookmarkers": 23,
       "datasets": 92,
       "companies": 1103,
@@ -805,7 +805,7 @@
         "https://wikirate.org/Apparel_Research_Group+Emissions_Disclosure_Rate.json",
         "https://wikirate.org/Gershon_M_Bialer+CO2e_Intensity.json"
       ],
-      "answers_url": "https://wikirate.org/Global_Reporting_Initiative+Indirect_greenhouse_gas_GHG_emissions_Scope_3_GRI_305_3_formerly_G4_EN17_a+Answer.json"
+      "answer_url": "https://wikirate.org/Global_Reporting_Initiative+Indirect_greenhouse_gas_GHG_emissions_Scope_3_GRI_305_3_formerly_G4_EN17_a+Answer.json"
     },
     {
       "id": 836051,
@@ -847,7 +847,7 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 1278,
+      "answer": 1278,
       "bookmarkers": 21,
       "datasets": 59,
       "companies": 555,
@@ -856,7 +856,7 @@
         "https://wikirate.org/Higher_School_of_Economics_Research_Group_2020+From_Farm_to_Fork_2020_Disclosure_Rate.json",
         "https://wikirate.org/Apparel_Research_Group+Water_Disclosure_Rate.json"
       ],
-      "answers_url": "https://wikirate.org/Global_Reporting_Initiative+Total_Water_Discharge_GRI_306_1_formerly_G4_EN22_a+Answer.json"
+      "answer_url": "https://wikirate.org/Global_Reporting_Initiative+Total_Water_Discharge_GRI_306_1_formerly_G4_EN22_a+Answer.json"
     },
     {
       "id": 565926,
@@ -890,14 +890,14 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 97,
+      "answer": 97,
       "bookmarkers": 21,
       "datasets": 1,
       "companies": 96,
       "calculations": [
 
       ],
-      "answers_url": "https://wikirate.org/PayScale+CEO_to_Worker_pay+Answer.json"
+      "answer_url": "https://wikirate.org/PayScale+CEO_to_Worker_pay+Answer.json"
     },
     {
       "id": 846580,
@@ -937,7 +937,7 @@
       "formula": "(function() {\n\n\n}).call(this);\n",
       "rubric": null,
       "variables": "",
-      "answers": 3372,
+      "answer": 3372,
       "bookmarkers": 21,
       "datasets": 99,
       "companies": 1261,
@@ -956,7 +956,7 @@
         "https://wikirate.org/Higher_School_of_Economics_Research_Group_2020+From_Farm_to_Fork_2020_Disclosure_Rate.json",
         "https://wikirate.org/Apparel_Research_Group+Energy_Disclosure_Rate.json"
       ],
-      "answers_url": "https://wikirate.org/Global_Reporting_Initiative+Total_energy_consumption_GRI_302_1_e_formerly_G4_EN3_e+Answer.json"
+      "answer_url": "https://wikirate.org/Global_Reporting_Initiative+Total_energy_consumption_GRI_302_1_e_formerly_G4_EN3_e+Answer.json"
     },
     {
       "id": 3447767,
@@ -968,7 +968,7 @@
       "question": "What is the average (mean) pay of female workers, expressed as a percentage of male workers' average pay?",
       "metric_type": "Researched",
       "about": "<p>This metric is loosely based on the UK legislation requiring disclosure of gender pay gaps by companies based in the UK: [[https://www.legislation.gov.uk/ukdsi/2017/9780111152010|The Equality Act 2010 (Gender Pay Gap Information) Regulations 2017]].</p>\r\n<p> </p>",
-      "methodology": "<p>There are many ways to report on gender pay gaps, for example averages can be calculated as a mean or median, and the figures can be based on basic (hourly or annual) pay or (include) bonus pay.</p>\r\n<p>The UK Equality Act requires disclosure on a range of variables, and in relation to those disclosures this metric equates to the <strong>mean hourly wage difference</strong>. Check whether the company disclosed to the UK Equality Act and find their reports here: [[https://gender-pay-gap.service.gov.uk/Viewing/search-results]]</p>\r\n<p>For companies that are not bound by the UK's equality act, it can be quite rare to find any figures about gender pay gaps at all, and so this metric is designed to be quite flexible. Ideally, the answer would cover all of the companies employees globally, but this information is rarely provided at the scale of global operations. </p>\r\n<p>If only one figure is reported, use that figure and make a comment explaining how it was calculated if that information is provided. In particular, <strong>does it cover employees globally or just in a particular country? </strong>Is it a mean or a median, or do they state this? Does it include bonus pay or is it based on a basic hourly rate? Comments that record these details are important because they help us to figure out how companies are reporting, and therefore how their answers should be interpreted.</p>\r\n<p>Sometimes this data is expressed as a ratio, for example, 0.87 to 1 - this would be recorded as 87%.</p>\r\n<p>Numbers greater than 100% are acceptable, these would indicate that female workers at  the company earn more than male workers on average.</p>",
+      "methodology": "<p>There are many ways to report on gender pay gaps, for example averages can be calculated as a mean or median, and the figures can be based on basic (hourly or annual) pay or (include) bonus pay.</p>\r\n<p>The UK Equality Act requires disclosure on a range of variables, and in relation to those disclosures this metric equates to the <strong>mean hourly wage difference</strong>. Check whether the company disclosed to the UK Equality Act and find their reports here: [[https://gender-pay-gap.service.gov.uk/Viewing/search-results]]</p>\r\n<p>For companies that are not bound by the UK's equality act, it can be quite rare to find any figures about gender pay gaps at all, and so this metric is designed to be quite flexible. Ideally, the answer would cover all of the companies employees globally, but this information is rarely provided at the scale of global operations. </p>\r\n<p>If only one figure is reported, use that figure and make a comment explaining how it was calculated if that information is provided. In particular, <strong>does it cover employees globally or just in a particular country? </strong>Is it a mean or a median, or do they state this? Does it include bonus pay or is it based on a basic hourly rate? Comments that answer these details are important because they help us to figure out how companies are reporting, and therefore how their answers should be interpreted.</p>\r\n<p>Sometimes this data is expressed as a ratio, for example, 0.87 to 1 - this would be answered as 87%.</p>\r\n<p>Numbers greater than 100% are acceptable, these would indicate that female workers at  the company earn more than male workers on average.</p>",
       "value_type": "Number",
       "value_options": [
 

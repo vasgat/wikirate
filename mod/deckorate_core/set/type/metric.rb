@@ -14,7 +14,7 @@ card_accessor :methodology
 card_accessor :value_type, type: :pointer
 card_accessor :value_options, type: :list
 card_accessor :dataset, type: :search_type
-card_accessor :metric_answer, type: :search_type
+card_accessor :answer, type: :search_type
 card_accessor :unit, type: :phrase
 card_accessor :range, type: :phrase
 card_accessor :hybrid, type: :toggle
@@ -22,9 +22,10 @@ card_accessor :question, type: :plain_text
 card_accessor :report_type, type: :list
 card_accessor :score, type: :search_type
 card_accessor :steward, type: :pointer
-card_accessor :wikirate_topic, type: :list
+card_accessor :topic, type: :list
 card_accessor :research_policy, type: :pointer, default_content: "Community Assessed"
-card_accessor :relationship_answer, type: :search_type
+card_accessor :relationship, type: :search_type
+card_accessor :company, type: :search_type
 
 # applicability
 card_accessor :year, type: :list
@@ -79,7 +80,7 @@ def self.default_false method_name
   define_method(method_name) { false }
 end
 
-default_false :relationship?
+default_false :relation?
 default_false :inverse?
 default_false :standard?
 default_false :researched?
@@ -137,6 +138,14 @@ end
 
 def ok_as_steward?
   designer_assessed? ? steward? : true
+end
+
+def ok_to_update?
+  steward?
+end
+
+def ok_to_delete?
+  steward?
 end
 
 def user_can_answer?

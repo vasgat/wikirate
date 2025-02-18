@@ -31,7 +31,8 @@ format do
   end
 
   def category_legend_options
-    @category_legend_options ||= card.value_option_names.reject { |o| Answer.unknown? o }
+    @category_legend_options ||=
+      card.value_option_names.reject { |o| ::Answer.unknown? o }
   end
 end
 

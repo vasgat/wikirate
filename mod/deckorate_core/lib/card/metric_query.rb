@@ -12,8 +12,8 @@ class Card
     self.card_id_filters = ::Set.new(card_id_map.keys).freeze
     self.simple_filters = ::Set.new(card_id_map.values << :metric_id).freeze
 
-    SORT_BY_COUNT = { company: :wikirate_company,
-                      answer: :metric_answer,
+    SORT_BY_COUNT = { company: :company,
+                      answer: :answer,
                       reference: :reference }.freeze
 
     include MetricFilters
@@ -31,11 +31,6 @@ class Card
       "metrics"
     end
 
-    def filter_by_name value
-      restrict_by_cql :title, "title_id",
-                      name: [:match, value], left_plus: [{}, { type: :metric }]
-    end
-
     def simple_sort_by value
       value == :bookmarkers ? :metric_bookmarkers : value
     end
@@ -44,8 +39,8 @@ class Card
       return super unless (field_id = SORT_BY_COUNT[value]&.card_id)
 
       @sort_joins <<
-        "LEFT JOIN counts ON counts.left_id = metric_id and counts.right_id = #{field_id}"
-      "counts.value"
+        "LEFT JOIN card_counts cc ON cc.left_id = metric_id and cc.right_id = #{field_id}"
+      "cc.value"
     end
 
     def sort_by_cardname

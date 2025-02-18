@@ -5,18 +5,18 @@ def dataset_card
   self
 end
 
-# the space of possible metric records
+# the space of possible metric answers
 def num_possible
-  @num_possible ||= num_possible_records * year_multiplier
+  @num_possible ||= num_possible_answers * year_multiplier
 end
 
-# used to calculate possible records/answers
+# used to calculate possible answers
 def year_multiplier
   @year_multiplier ||= years? ? num_years : 1
 end
 
-def num_possible_records
-  @num_possible_records ||= num_companies * num_metrics
+def num_possible_answers
+  @num_possible_answers ||= num_companies * num_metrics
 end
 
 def type_count type
@@ -25,7 +25,7 @@ def type_count type
 end
 
 def num_companies
-  type_count :wikirate_company
+  type_count :company
 end
 
 def num_metrics
@@ -36,12 +36,12 @@ def num_years
   type_count :year
 end
 
-def num_users
-  @num_users ||= answers.select(:creator_id).uniq.count
-end
+# def num_users
+#   @num_users ||= answer.select(:creator_id).uniq.count
+# end
 
 def num_answers
-  @num_answers ||= answers.count
+  @num_answers ||= type_count :answer
 end
 
 def num_data_subsets
@@ -49,7 +49,7 @@ def num_data_subsets
 end
 
 def units
-  years ? "answers" : "records"
+  years.present? ? "data points" : "records"
 end
 
 format :html do
@@ -100,7 +100,7 @@ format :html do
   end
 
   def formula
-    vars = %i[wikirate_company metric]
+    vars = %i[company metric]
     vars << :year if card.years?
     vars.compact.map do |codename|
       "#{type_count codename} #{codename.cardname.vary :plural}"

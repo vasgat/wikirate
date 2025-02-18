@@ -18,14 +18,19 @@ format :html do
     :deckorate_minimal_layout
   end
 
-  %i[menu core search type_links involved].each do |view|
-    view view, template: :haml
+  %i[alert banner involved].each do |view|
+    view view, template: :haml, cache: :always
   end
 
+  view :core, template: :haml, cache: :deep, expire: :hour
   view :delta, template: :haml, wrap: :slot, cache: :never
 
   view :shuffle_button do
     link_to_view :delta, material_symbol_tag(:shuffle), class: "btn wr-arrow"
+  end
+
+  def alert?
+    :alert_banner.card.content.strip.present?
   end
 
   def involved_links
@@ -40,11 +45,10 @@ format :html do
   def edit_fields
     absolutize_edit_fields [
       :alert_banner,
-      :homepage_search_heading,
-      %i[search featured],
       %i[cardtype featured],
       %i[homepage blurb],
-      # ] + count_categories.map { |c| [c, :header] } + [
+      %i[metric featured],
+      %i[dataset featured],
       :homepage_involved_heading,
       :homepage_delta_heading,
       %i[homepage metric],
@@ -54,7 +58,7 @@ format :html do
   end
 
   def count_categories
-    %i[wikirate_company metric metric_answer source]
+    %i[company metric answer source]
   end
 
   def delta_metric_card
@@ -83,7 +87,7 @@ format :html do
   def delta_answers
     return [] unless (metric = delta_metric_card)
 
-    ma = metric.metric_answer_card
+    ma = metric.answer_card
     AnswerQuery.new(ma.query_hash.merge(latest: true), { random: "" }, limit: 10).run
   end
 end

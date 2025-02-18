@@ -11,7 +11,7 @@ RSpec.describe Card::Set::Type::Metric do
 
       it "finds direct answers to metric" do
         expect(yielded_answers.size)
-          .to be(Answer.where(metric_id: card_subject.id).count)
+          .to be(::Answer.where(metric_id: card_subject.id).count)
       end
     end
 

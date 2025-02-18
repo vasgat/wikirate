@@ -19,7 +19,8 @@ RSpec.describe Card::Set::MetricType::Descendant do
 
   def inherited_answer company, year
     Answer.where(metric_id: metric_name.card_id,
-                 company_id: company.card_id, year: year.to_i).take
+                 company_id: company.card_id,
+                 year: year.to_i).take
   end
 
   context "with two ancestors" do

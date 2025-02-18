@@ -173,7 +173,7 @@
       ]
     },
     {
-      "name": "answers",
+      "name": "answer",
       "transform": [
         {
           "type": "lookup",
@@ -230,11 +230,11 @@
     },
     {
       "name": "researchedAnswers",
-      "source": "answers",
+      "source": "answer",
       "transform": [
         {
           "type": "filter",
-          "expr": "indexof(['WikiRating', 'Score'], datum.metricObj.metric_type) == -1"
+          "expr": "indexof(['Rating', 'Score'], datum.metricObj.metric_type) == -1"
         }
       ]
     },
@@ -244,7 +244,7 @@
       "transform": [
         {
           "type": "filter",
-          "expr": "indexof(['WikiRating', 'Score'], datum.metricObj.metric_type) > -1"
+          "expr": "indexof(['Rating', 'Score'], datum.metricObj.metric_type) > -1"
         },
         {
           "type": "formula",

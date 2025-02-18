@@ -5,25 +5,42 @@ delegate :unorthodox?, to: :variables_card
 def calculator variant=:standard
   calculator_class.new input_array(variant),
                        formula: formula,
-                       normalizer: Answer.method(:value_to_lookup),
+                       normalizer: ::Answer.method(:value_to_lookup),
                        years: year_card.item_names,
-                       companies: company_group_card.company_ids
+                       companies: calculator_company_ids
 end
 
-# update all answers of this metric and the answers of all dependent metrics
-def deep_answer_update args={}
-  calculate_answers args
-  each_depender_metric { |m| m.send :calculate_answers, args }
+def calculator_company_ids
+  company_group_card.try(:company_ids) || []
+end
+
+# update all answers of this metric and the answers of all metrics that
+# depend on this one
+def calculate_answers args={}
+  calculate_direct_answers args
+  each_depender_metric { |m| m.calculate_direct_answers args }
 end
 
 # param @args [Hash] :company_id, :year, both, or neither.
 # TODO: convert to :companies and :years as named arguments to be consistent with
 # calculator#result
-def calculate_answers args={}
+def calculate_direct_answers args={}
   c = ::Calculate.new self, args
   c.prepare
   c.transact
   c.clean
+end
+
+# USE WITH CAUTION
+# This method works DOWN the dependency tree and recalculates answers. It's not a
+# typical pattern and was written as a bit of hail mary attempt to fix some confusing
+# results. But it can be very computationally expensive, and if things are working
+# properly it should never be necessary.
+def recalculate_all_answers dependers: true
+  return if researched?
+
+  direct_dependee_metrics.each { |m| m.recalculate_all_answers dependers: false }
+  dependers ? calculate_answers : calculate_direct_answers
 end
 
 def input_array variant
@@ -63,7 +80,7 @@ def formula_field?
   field? formula_field
 end
 
-# metric's answers depends ONLY on other answers for the same company and year
+# metric's answers depend ONLY on other answers for the same company and year
 def orthodox_tree?
   !unorthodox_tree?
 end
@@ -82,7 +99,7 @@ format :html do
   end
 
   def tab_options
-    { input_answer: { label: "Inputs" } }
+    super.merge input_answer: { label: "Inputs" }
   end
 
   view :new do
@@ -106,8 +123,8 @@ format :html do
   view :input_answer_tab, template: :haml
 
   def metric_tree_item detail=nil
-    tree_item metric_tree_item_title(detail: detail), body: stub_view(:metric_tree_branch)
-    # body: render_metric_tree_branch
+    tree_item metric_tree_item_title(detail: detail),
+              body: card_stub(view: :metric_tree_branch)
   end
 
   view :metric_tree_branch, cache: :never do

@@ -38,9 +38,9 @@ class Calculate
           result_space.update @result_slice, mandatory?
         end
 
-        # Searches for all metric answers for this metric input.
+        # Searches for all answers for this metric input.
         def answers
-          Answer.where answer_query
+          ::Answer.where answer_query
         end
 
         def each_input_answer rel, object
@@ -54,8 +54,8 @@ class Calculate
         end
 
         def search_company_ids
-          Answer.select(:company_id).distinct
-                .where(metric_id: input_card.id).pluck(:company_id)
+          ::Answer.select(:company_id).distinct
+                  .where(metric_id: input_card.id).pluck(:company_id)
         end
 
         def value_store

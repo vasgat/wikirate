@@ -20,7 +20,7 @@ RSpec.describe Card::AnswerQuery::AdvancedFilters do
   # end
 
   describe "#related_company_group_query" do
-    context "with relationship metric" do
+    context "with relation metric" do
       let(:metric_name) { "Commons+Supplied by" }
 
       it "finds object companies" do
@@ -29,12 +29,12 @@ RSpec.describe Card::AnswerQuery::AdvancedFilters do
       end
     end
 
-    context "with inverse relationship metric" do
+    context "with inverse relation metric" do
       let(:metric_name) { "Commons+Supplier of" }
 
       it "finds subject companies" do
-        expect(search(related_company_group: "Deadliest"))
-          .to eq(["Los Pollos Hermanos", "Google LLC"])
+        expect(search(related_company_group: "Deadliest").sort)
+          .to eq(["Google LLC", "Los Pollos Hermanos"])
       end
     end
   end

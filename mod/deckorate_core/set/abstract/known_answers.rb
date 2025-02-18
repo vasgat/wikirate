@@ -2,7 +2,7 @@ include_set Abstract::ProgressBar
 
 # for this to work, you have to define at a minimum:
 #
-# 1. #num_possible returning the total number of answers/records in the problem space
+# 1. #num_possible returning the total number of answer/answer in the problem space
 # 2. #where_answer returning query args for an answer query
 
 CSS_CLASS = { not_researched: "progress-not-researched" }.freeze
@@ -74,11 +74,11 @@ def count_known
 end
 
 def answers
-  Answer.where where_answer
+  ::Answer.where where_answer
 end
 
 def records
-  Answer.select(:metric_id, :company_id).distinct.where where_answer
+  ::Answer.select(:metric_id, :company_id).distinct.where where_answer
 end
 
 def researched_relation
@@ -116,7 +116,7 @@ format :html do
       value: card.send("percent_#{value}"),
       body: progress_section_body(value, link_method, num),
       class: progress_section_css_class(value),
-      title: "#{HOVER_TEXT[value]} #{units}"
+      title: HOVER_TEXT[value]
     }
   end
 

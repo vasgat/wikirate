@@ -2,7 +2,7 @@
 
 class CorrectAnswerTypes < Cardio::Migration::Transform
   def up
-    update_type :answer, Card::MetricAnswerID
+    update_type :answer, Card::AnswerID
     update_type :relationship, Card::RelationshipAnswerID
   end
 

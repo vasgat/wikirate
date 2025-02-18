@@ -22,15 +22,15 @@
 - :name: Wrong Year
   :type: :flag_type
   :fields:
-    :description: Answer is not associated with the year described by the source.
+    :description: Data point is not associated with the year described by the source.
 - :name: Wrong Company
   :type: :flag_type
   :fields:
-    :description: Answer is not associated with the company described by the source.
+    :description: Data point is not associated with the company described by the source.
 - :name: Wrong Value
   :type: :flag_type
   :fields:
-    :description: Answer's value is incorrect and/or not supported by source
+    :description: Data point's value is incorrect and/or not supported by source
 
 - :name: Answers with check requests
   :type: :search_type

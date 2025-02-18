@@ -3,14 +3,14 @@ format :html do
   def basic_table_properties
     # designer:       "Designed by",
     # metric_type:    "Metric Type",
-    { wikirate_topic: "Topics",
+    { topic: "Topics",
       unpublished:    "Unpublished" }.merge applicability_properties
   end
 
   # all metrics have these properties in their editor
   def basic_edit_properties
     { question:       "Question",
-      wikirate_topic: "Topics",
+      topic: "Topics",
       about:          "About",
       methodology:    "Methodology",
       unpublished:    "Unpublished" }.merge applicability_properties
@@ -63,14 +63,14 @@ format :html do
 
   # SHARED
 
-  def designer_property title
+  def designer_property title, size=nil
     wrap :div, class: "row designer-property" do
-      labeled title, nest(card.metric_designer_card, view: :thumbnail)
+      labeled title, nest(card.metric_designer_card, view: :thumbnail, size: size)
     end
   end
 
-  def wikirate_topic_property title
-    labeled_field :wikirate_topic, :link, title: title
+  def topic_property title
+    labeled_field :topic, :link, title: title
   end
 
   def unpublished_property title

@@ -87,7 +87,7 @@ class Calculate
         full_search do |_company_id, _year, input_answer|
           answer_ids << input_answer.lookup_ids
         end
-        Answer.where id: answer_ids.flatten.uniq
+        ::Answer.where id: answer_ids.flatten.uniq
       end
 
       def unknown! answer

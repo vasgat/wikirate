@@ -1,11 +1,12 @@
 basket[:icons][:material].merge!(
   post: :insert_comment,
   score: :adjust,
+  import: :input,
   answer_import: :input,
   metric_import: :input,
   activity: :directions_run,
   record: :bar_chart,
-  metric_answer: :inventory,
+  answer: :inventory,
   researcher: :person,
   user: :person,
   simple_account: :person,
@@ -39,11 +40,19 @@ basket[:icons][:material].merge!(
   reference: :attribution,
   history: :history,
   clipboard: :content_copy,
-  save: :download
+  save: :download,
+  customize: :visibility,
+  bars: :list,
+  boxes: :grid_view,
+  graph: :insights,
+  sort_ascending: :keyboard_arrow_up,
+  sort_descending: :keyboard_arrow_down,
+  help: :help,
+  signup: :rocket
 )
 
 basket[:icons][:font_awesome].merge!(
-  metric_answer: "clipboard-check",
+  answer: "clipboard-check",
   researcher: :user,
   user: :user,
   simple_account: :user,

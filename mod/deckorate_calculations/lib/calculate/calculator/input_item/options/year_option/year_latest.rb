@@ -3,7 +3,7 @@ class Calculate
     class InputItem
       module Options
         module YearOption
-          # Handles the year option that searches for latest for a given record
+          # Handles the year option that searches for latest for a given answer
           # Example:
           #    year: latest
           module YearLatest

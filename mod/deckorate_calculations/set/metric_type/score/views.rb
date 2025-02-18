@@ -14,7 +14,7 @@ format :html do
   end
 
   view :new do
-    return super() unless card.name.card_id
+    return super() if card.new?
 
     alert(:warning) { "You have already scored this metric: #{link_to_card card}." }
   end
@@ -30,11 +30,13 @@ format :html do
                class: "pointer-select  _pointer-select")
   end
 
-  view :scorer_image do
-    nest scorer_image_card, view: thumbnail_image_view,
-                            title: card.scorer,
-                            size: thumbnail_image_size
-  end
+  # view :scorer_image do
+  #   nest scorer_image_card, view: thumbnail_image_view,
+  #                           title: card.scorer,
+  #                           size: thumbnail_image_size
+  # end
+
+  view :thumbnail_subtitle, template: :haml
 
   def algorithm
     format_algorithm algorithm_content
@@ -44,22 +46,22 @@ format :html do
     field_nest card.formula_field, view: :core
   end
 
-  def scorer_image_card
-    scorer_card.fetch :image, new: { type: :image }
-  end
+  # def scorer_image_card
+  #   scorer_card.fetch :image, new: { type: :image }
+  # end
 
   def table_properties
     {
       scored_metric:  "Scored Metric",
       scorer:         "Scored by",
-      wikirate_topic: "Topics",
+      topic: "Topics",
       metric_type:    "Metric Type",
       unpublished:    "Unpublished"
     }.merge applicability_properties
   end
 
   def header_text
-    super + fixed_thumbnail_subtitle
+    super + metric_type_details
   end
 
   view :name_formgroup do
@@ -88,25 +90,19 @@ format :html do
     "full metric name = [scored metric]+[your username]"
   end
 
-  # def fixed_thumbnail_subtitle
-  #   wrap_with :div, class: "scored-by-subtitle" do
-  #     "Scored by #{link_to_card card.scorer}"
-  #   end
-  # end
-
   def scored_metric_property title
     wrap_with :div, class: "row scored-metric-property" do
       labeled title, nest(card.left, view: :thumbnail)
     end
   end
 
-  def scorer_property title
+  def scorer_property title, size=nil
     wrap_with :div, class: "row scorer-property" do
-      labeled title, nest(scorer_card, view: :thumbnail)
+      labeled title, nest(scorer_card, view: :thumbnail, size: size)
     end
   end
 
   def autocomplete_label
-    "#{super}<small>#{fixed_thumbnail_subtitle}</small>"
+    "#{super}<small>#{metric_type_details}</small>"
   end
 end

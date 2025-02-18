@@ -1,5 +1,5 @@
 event :standardize_unknown_value, :prepare_to_validate do
-  self.content = Answer::UNKNOWN if Answer.unknown? content
+  self.content = ::Answer::UNKNOWN if ::Answer.unknown? content
 end
 
 event :no_empty_value, :validate, on: :save do
@@ -9,7 +9,7 @@ end
 event :no_left_name_change, :prepare_to_validate, on: :update, changed: :name do
   return if @supercard # as part of other changes (probably) ok
   return unless name.right == "value" # ok if not a value anymore
-  return if Card[name.left]&.type_id == Card::MetricAnswerID  # or relationship answer??
+  return if Card[name.left]&.type_id == Card::AnswerID  # or relationship??
   errors.add :name, "not allowed to change. " \
                     "Change #{name_was.to_name.left} instead"
 end
@@ -25,11 +25,17 @@ event :reset_double_check, :validate, on: :update, changed: :content do
 end
 
 event :monitor_hybridness, :integrate, on: %i[create delete], when: :calculated? do
-  metric_card.deep_answer_update company_id: company_id, year: year
+  metric_card.calculate_answers company_id: company_id, year: year
 end
 
-event :mark_as_imported, before: :finalize_action, when: :import_act? do
-  @current_action.comment = "imported"
+event :mark_action, before: :finalize_action, changed: :content do
+  action_mark =
+    if import_act?
+      @current_action.comment = "imported"
+    elsif Card::Auth.api_act?
+      @current_action.comment = "api"
+    end
+  @current_action.comment = action_mark if action_mark
 end
 
 private

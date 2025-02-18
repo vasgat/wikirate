@@ -5,7 +5,7 @@
 #  # All metric types
 #  - metric:         # required. stored as id prefixed by tilde
 #
-#  # WikiRatings only
+#  # Ratings only
 #  - weight          # used as item's weight in weighted average
 #
 #  # Formula only
@@ -128,6 +128,9 @@ format :html do
     card.metric_card.format.format_algorithm cont if cont
   end
 
+  # don't cache filter items view
+  view(:filter_items, cache: :never) { super() }
+
   def algorithm_content
     try "#{metric_type_codename}_algorithm"
   end
@@ -147,7 +150,7 @@ format :html do
 
   def filter_items_default_filter
     super.tap do |hash|
-      hash.merge! metric_type: %w[Score WikiRating], name: "" if rating?
+      hash.merge! metric_type: %w[Score Rating], name: "" if rating?
     end
   end
 

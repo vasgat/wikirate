@@ -15,7 +15,7 @@ def year
 end
 
 def num_possible
-  @num_possible ||= dataset_card.num_possible_records
+  @num_possible ||= dataset_card.num_possible_answers
 end
 
 format :html do

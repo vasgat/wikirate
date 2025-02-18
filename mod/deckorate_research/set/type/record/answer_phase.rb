@@ -1,5 +1,5 @@
 format :html do
-  view :answer_phase, cache: :never, template: :haml
+  view :answer_phase, cache: :never, template: :haml, perms: :can_research?
 
   def current_year
     params[:year]
@@ -18,7 +18,7 @@ format :html do
   end
 
   def simple_answer
-    Card.fetch card.name.field_name(current_year), new: { type: :metric_answer }
+    Card.fetch card.name.field_name(current_year), new: { type: :answer }
   end
 
   def construct_source answer

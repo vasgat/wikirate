@@ -1,6 +1,6 @@
 class Answer
-  # Methods to handle answers that exist only in the the answer table
-  # and don't have a card. Used for calculated answers.
+  # Methods to handle answers that exist only in the the answers table
+  # and don't have a card. Used for calculated answer.
   module CardlessAnswers
     def card_without_answer_id name=nil, val=nil
       fetch_answer_card(name).tap do |card|
@@ -21,7 +21,7 @@ class Answer
 
     def fetch_answer_card name=nil
       name ||= answer_name_from_parts
-      Card.fetch name, eager_cache: true, new: { type_id: Card::MetricAnswerID }
+      Card.fetch name, eager_cache: true, new: { type_id: Card::AnswerID }
     end
 
     def answer_name_from_parts

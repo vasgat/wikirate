@@ -5,7 +5,7 @@
     "id": 3318057,
     "name": "Record",
     "type": "Cardtype",
-    "url": "https://wikirate.org/Record.json",
+    "url": "https://wikirate.org/Answer_Log.json",
     "codename": "record"
   },
   "url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json",
@@ -21,7 +21,7 @@
       "year": 2008,
       "value": "36171000000",
       "comments": null,
-      "record_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
+      "answer_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
     },
     {
       "id": 2365848,
@@ -34,7 +34,7 @@
       "year": 2009,
       "value": "53851000000",
       "comments": null,
-      "record_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
+      "answer_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
     },
     {
       "id": 2365839,
@@ -47,7 +47,7 @@
       "year": 2010,
       "value": "75183000000",
       "comments": null,
-      "record_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
+      "answer_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
     },
     {
       "id": 2365842,
@@ -60,7 +60,7 @@
       "year": 2011,
       "value": "116371000000",
       "comments": null,
-      "record_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
+      "answer_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
     },
     {
       "id": 2365832,
@@ -73,7 +73,7 @@
       "year": 2012,
       "value": "176064000000",
       "comments": null,
-      "record_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
+      "answer_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
     },
     {
       "id": 2365836,
@@ -86,7 +86,7 @@
       "year": 2013,
       "value": "207000000000",
       "comments": null,
-      "record_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
+      "answer_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
     },
     {
       "id": 2365851,
@@ -99,7 +99,7 @@
       "year": 2014,
       "value": "231839000000",
       "comments": null,
-      "record_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
+      "answer_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
     },
     {
       "id": 2365854,
@@ -112,7 +112,7 @@
       "year": 2015,
       "value": "290479000000",
       "comments": null,
-      "record_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
+      "answer_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
     },
     {
       "id": 4650229,
@@ -125,7 +125,7 @@
       "year": 2016,
       "value": "321686000000",
       "comments": null,
-      "record_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
+      "answer_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
     },
     {
       "id": 4607765,
@@ -138,7 +138,7 @@
       "year": 2017,
       "value": "375319000000",
       "comments": null,
-      "record_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
+      "answer_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
     },
     {
       "id": 4595037,
@@ -151,7 +151,7 @@
       "year": 2018,
       "value": "365725000000",
       "comments": null,
-      "record_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
+      "answer_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
     },
     {
       "id": 6580205,
@@ -164,7 +164,7 @@
       "year": 2019,
       "value": "338516000000",
       "comments": null,
-      "record_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
+      "answer_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
     },
     {
       "id": 6580208,
@@ -177,7 +177,7 @@
       "year": 2020,
       "value": "323888000000",
       "comments": null,
-      "record_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
+      "answer_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
     },
     {
       "id": 10727724,
@@ -190,7 +190,7 @@
       "year": 2021,
       "value": "351002000000",
       "comments": null,
-      "record_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
+      "answer_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
     },
     {
       "id": 14165962,
@@ -203,7 +203,7 @@
       "year": 2022,
       "value": "352755000000",
       "comments": null,
-      "record_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
+      "answer_url": "https://wikirate.org/US_Securities_and_Exchange_Commission+Assets+Apple_Inc.json"
     }
   ],
   "links": [

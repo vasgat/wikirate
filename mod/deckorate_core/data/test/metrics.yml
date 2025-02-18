@@ -9,8 +9,10 @@
   :type: :research_group
 - :name: Commons
   :type: :research_group
+  :codename: :commons
 - :name: Core
   :type: :research_group
+  :codename: :core
 
 - :name:
     - Clean_Clothes_Campaign
@@ -24,7 +26,7 @@
     - more evil
   :type: :metric
   :fields:
-    :metric_type: Relationship
+    :metric_type: Relation
     :value_type: Category
     :value_options: |-
       yes
@@ -108,7 +110,7 @@
     :value_type: Number
     :metric_type: Researched
     :research_policy: Designer Assessed
-    :wikirate_topic: Taming
+    :topic: Taming
 - :name:
     - Joe User
     - researched number 2
@@ -172,7 +174,7 @@
       yes
       no
     :research_policy: Designer Assessed
-    :wikirate_topic: Taming
+    :topic: Taming
 - :name:
     - Jedi
     - disturbances in the Force
@@ -184,20 +186,20 @@
       yes
       no
     :research_policy: Community Assessed
-    :wikirate_topic: Force
+    :topic: Force
 - :name:
     - Commons
     - Has Brands
   :type: :metric
   :fields:
-    :metric_type: Relationship
+    :metric_type: Relation
     :inverse_title: Is Brand Of
 - :name:
     - Commons
     - Supplied by
   :type: :metric
   :fields:
-    :metric_type: Relationship
+    :metric_type: Relation
     :inverse_title: Supplier of
 
 - :name:

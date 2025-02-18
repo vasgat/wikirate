@@ -10,7 +10,7 @@ RSpec.describe Card::Set::Right::CheckedBy do
       expect(checked_by_card.item_names).to include("Joe User")
     end
 
-    it "updates the answers table" do
+    it "updates the answer table" do
       expect(answer_card.answer.checkers).to eq("Joe User")
     end
 
@@ -39,18 +39,18 @@ RSpec.describe Card::Set::Right::CheckedBy do
         expect(checked_by_card.item_names.size).to eq(0)
       end
 
-      it "updates the answers table" do
+      it "updates the answer table" do
         expect(answer_card.answer.checkers).to eq(nil)
       end
     end
 
     describe "uncheck value via delete" do
       it "updates the lookup table", as_bot: true do
-        expect(answer_card.answer.verification).to eq(4)
+        expect(answer_card.answer.verification).to eq(3)
         checked_by_card.delete!
         lookup = answer_card.answer
         expect(lookup.checkers).to eq(nil)
-        expect(lookup.verification).to eq(2)
+        expect(lookup.verification).to eq(3)
       end
     end
   end

@@ -45,8 +45,6 @@ else
   path "./mod" do
     gem "card-mod-deckorate_search"
   end
-
-  gem "decko-cap", path: "./vendor/decko-cap", group: :development
   # gem "card-mod-wikirate_shared", path: "./vendor/wikirateproject/mod/wikirate_shared"
 end
 
@@ -77,6 +75,11 @@ gem "company-mapping"                # Vasso's gem, written for WikiRate
 gem "puma", "~>5.6"                  # local webserver (6.x broke semaphore )
 gem "rack-attack"                    # protection from bad clients
 gem "rack-cors"                      # support for Cross-Origin Resource Sharing (CORS)
+
+# VERSIONING ISSUES
+gem "ffi", "1.16.3"                  # 1.17 requires rubygems version >= 3.3.22
+gem "net-imap", "0.4.17"             # 0.5.0 requires ruby version >= 3.1.0
+gem "zeitwerk", "~>2.6.18"           # 2.7 requires rubygems v > 3.2
 
 group :live do
   gem "dalli"                        # Memcache

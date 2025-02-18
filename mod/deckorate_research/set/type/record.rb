@@ -12,6 +12,6 @@ format :html do
                  class: "btn btn-secondary _research_answer_button _over-card-link",
                  path: { view: :research, year: year, tab: tab },
                  target: "_research_page",
-                 title: "Research/Review answers for this company and metric"
+                 title: "Research/Review answer for this company and metric"
   end
 end

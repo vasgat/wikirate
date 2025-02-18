@@ -41,35 +41,32 @@ format :html do
   end
 
   def tab_list
-    %i[details wikirate_company metric]
+    %i[details company metric]
   end
 
-  view :wikirate_company_tab do
-    field_nest :wikirate_company, view: :filtered_content
+  view :company_tab do
+    field_nest :company, view: :filtered_content
   end
 
   view :metric_tab do
     field_nest :metric, view: :filtered_content
   end
 
-  view :details_tab do
-    render_details
+  view :details_tab_left do
+    [
+      nest(card.dataset_card, view: :overall_progress_box),
+      field_nest(:description, view: :titled),
+      field_nest(:conversation, view: :titled)
+    ]
   end
 
-  view :details do
-    wrap_with :div, class: "project-details" do
+  view :details_tab_right do
+    labeled_fields do
       [
-        nest(card.dataset_card, view: :overall_progress_box),
-        labeled_fields do
-          [
-            labeled_field(:dataset, :thumbnail),
-            labeled_field(:organizer, :thumbnail),
-            labeled_field(:wikirate_status, :name),
-            default_unpublished
-          ]
-        end,
-        field_nest(:description, view: :titled),
-        field_nest(:conversation, view: :titled)
+        labeled_field(:dataset, :thumbnail),
+        labeled_field(:organizer, :thumbnail),
+        labeled_field(:wikirate_status, :name),
+        default_unpublished
       ]
     end
   end

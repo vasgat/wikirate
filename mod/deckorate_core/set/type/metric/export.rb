@@ -1,20 +1,19 @@
+NESTED_FIELD_CODENAMES = %i[
+  question metric_type about methodology value_type value_options report_type
+  research_policy unit range hybrid topic score formula rubric variables
+].freeze
+
+COUNT_FIELD_CODENAMES = %i[answer bookmarkers dataset company].freeze
+
+FIELD_LABELS = {
+  topic: :topics,
+  score: :scores,
+  answer: :answer,
+  dataset: :datasets,
+  company: :companies
+}.freeze
+
 format :json do
-  NESTED_FIELD_CODENAMES = %i[
-    question metric_type about methodology value_type value_options report_type
-    research_policy unit range hybrid wikirate_topic score formula rubric variables
-  ].freeze
-
-  COUNT_FIELD_CODENAMES =
-    %i[metric_answer bookmarkers dataset wikirate_company].freeze
-
-  FIELD_LABELS = {
-    wikirate_topic: :topics,
-    score: :scores,
-    metric_answer: :answers,
-    dataset: :datasets,
-    wikirate_company: :companies
-  }.freeze
-
   view :links do
     []
   end
@@ -40,7 +39,7 @@ format :json do
   end
 
   def add_answers_to_hash hash
-    hash[:answers_url] = path mark: card.metric_answer_card, format: :json
+    hash[:answers_url] = path mark: card.answer_card, format: :json
   end
 
   def add_calculations_to_hash hash
@@ -71,14 +70,14 @@ end
 
 format :csv do
   COLUMN_METHODS = {
-    wikirate_topic: :semicolon_separated_values,
+    topic: :semicolon_separated_values,
     report_type: :semicolon_separated_values,
     research_policy: :semicolon_separated_values,
     value_options: :semicolon_separated_values
   }.freeze
 
   view :titled do # DEPRECATED.  +answer csv replaces this
-    field_nest :metric_answer, view: :titled
+    field_nest :answer, view: :titled
   end
 
   view :row do

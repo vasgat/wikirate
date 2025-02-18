@@ -5,9 +5,9 @@ class Answer
       errors.add :answer_id, "no card with id #{answer_id}" unless card
     end
 
-    def must_be_an_answer
-      return if card.type_id == Card::MetricAnswerID
-      errors.add :answer_id, "not a metric answer: #{Card.fetch_name answer_id}"
+    def must_be_a_answer
+      return if card.type_id == Card::AnswerID
+      errors.add :answer_id, "not an answer: #{answer_id.cardname}"
     end
 
     def metric_must_exist

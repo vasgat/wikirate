@@ -3,7 +3,7 @@ require "uri"
 
 # for now, no notifications on acts using API key
 def silent_change?
-  Card::Auth.try(:api_act?) || super
+  Card::Auth.api_act? || super
 end
 
 def as_wikirate_team?
@@ -16,7 +16,7 @@ end
 
 format do
   def rate_subject
-    @wikirate_subject ||= Card.fetch_name(:wikirate_company)
+    @wikirate_subject ||= :company.cardname
   end
 
   def rate_subjects
@@ -58,11 +58,6 @@ format :html do
 
   view :modal_footer do
     ""
-  end
-
-  # TODO: refactor away
-  view :menued do
-    render_titled hide: [:title, :toggle], show: :menu
   end
 
   view :type_link, template: :haml do

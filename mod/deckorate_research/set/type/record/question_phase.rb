@@ -12,7 +12,7 @@ format :html do
   end
 
   def project_companies_mark
-    project_name&.field :wikirate_company
+    project_name&.field :company
   end
 
   def project_metrics_mark
@@ -28,7 +28,7 @@ format :html do
   view :metric_option, template: :haml
   view :research_years, template: :haml, cache: :never
 
-  view :question_phase, template: :haml, wrap: :slot, cache: :never
+  view :question_phase, template: :haml, wrap: :slot, cache: :never, perms: :can_research?
   view :methodology, template: :haml, wrap: :research_overlay do
     voo.hide :overlay_title
   end
@@ -72,7 +72,7 @@ format :html do
     text ||= label
     record_name = metric_id_for_index(index).cardname.field card.company_name
     link_to_card record_name, text,
-                 class: classy("_research-metric-link"),
+                 class: "_metric_arrow_button #{classy '_research-metric-link'}",
                  rel: rel,
                  title: label,
                  "aria-label": label,
@@ -96,13 +96,13 @@ format :html do
   end
 
   def new_answer year
-    Card.new type: :metric_answer, name: [card.record_name, year.to_s]
+    Card.new type: :answer, name: [card.record_name, year.to_s]
   end
 
   def answers
-    @answers ||=
-      card.record_card.metric_answer_card.search.each_with_object({}) do |answer, hash|
-        hash[answer.year.to_i] = answer
-      end
+    @answers ||= card.record_card.answer_card.search
+                     .each_with_object({}) do |answer, hash|
+      hash[answer.year.to_i] = answer
+    end
   end
 end

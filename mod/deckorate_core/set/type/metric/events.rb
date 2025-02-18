@@ -1,6 +1,6 @@
 include_set Abstract::LookupEvents
 
-DESIGNER_TYPES = [:research_group, :user, :wikirate_company].freeze
+DESIGNER_TYPES = [:research_group, :user, :company].freeze
 
 # The new metric form has a title and a designer field instead of a name field
 # We compose the card's name here
@@ -49,13 +49,13 @@ end
 
 event :delete_answers, :prepare_to_validate, on: :update, trigger: :required do
   if Card::Auth.always_ok? # TODO: come up with better permissions scheme for this!
-    answers.each { |answer_card| delete_as_subcard answer_card }
+    answer.each { |answer_card| delete_as_subcard answer_card }
   else
-    errors.add :answers, "only admins can delete all answers"
+    errors.add :answer, "only admins can delete all answer"
   end
 end
 
-event :delete_all_metric_answers, :store, on: :delete do
+event :delete_all_answers, :store, on: :delete do
   answers.delete_all
   skip_event! :update_related_calculations,
               :update_related_scores,

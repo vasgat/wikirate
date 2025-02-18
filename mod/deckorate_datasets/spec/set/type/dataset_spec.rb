@@ -24,15 +24,16 @@ RSpec.describe Card::Set::Type::Dataset do
       expect_stat :num, possible: 6, researched: 2, unknown: 0, not_researched: 4
     end
 
-    it "calculates progress percentages based on records" do
+    it "calculates progress percentages based on answers" do
       expect_stat :percent, researched: 33.3, unknown: 0, not_researched: 66.6
     end
   end
 
   context "with years" do
     let :dataset do
-      card_subject.year_card.update! content: "1999\n2000\n2001"
-      card_subject
+      card_subject.tap do |dataset|
+        dataset.year_card.update! content: "1999\n2000\n2001"
+      end
     end
 
     it "lists years in order of recency" do

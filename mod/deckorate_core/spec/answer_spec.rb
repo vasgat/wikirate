@@ -10,7 +10,7 @@ RSpec.describe Answer do
   describe "seeded metric answer table" do
     it "has more than researched values" do
       expect(described_class.count)
-        .to be > Card.search(type_id: Card::MetricAnswerID, return: :count)
+        .to be > Card.search(type_id: Card::AnswerID, return: :count)
     end
 
     describe "random example" do
@@ -44,20 +44,20 @@ RSpec.describe Answer do
     end
   end
 
-  describe "#relationship?" do
-    context "when metric is a relationship metric" do
-      let(:relationship_answer) do
+  describe "#relation?" do
+    context "when metric is a relation metric" do
+      let(:relationship) do
         answer "Jedi+more evil+Death Star+1977".card_id
       end
 
       it "returns true" do
-        expect(relationship_answer).to be_relationship
+        expect(relationship).to be_relation
       end
     end
 
-    context "when metric is not a relationship metric" do
+    context "when metric is not a relation metric" do
       it "returns false" do
-        expect(answer).not_to be_relationship
+        expect(answer).not_to be_relation
       end
     end
   end
@@ -110,7 +110,7 @@ RSpec.describe Answer do
     end
 
     context "when year changes" do
-      # record has answers for 2002 and 2015
+      # record has answer for 2002 and 2015
       let(:record_name) { "Joe User+researched number 1+Apple Inc" }
 
       it "updates year" do

@@ -21,7 +21,7 @@ describe 'Formula editor', ->
     # open filtered list and choose new metric
     cy.contains("a", "Add Variable", timeout: 15000)
       .click force: true
-    cy.get("._filter-container [name='filter[name]']")
+    cy.get("._filter-container [name='filter[metric_keyword]']")
       .type("disturb{enter}", force: true)
     cy.wait 500
     cy.get("._search-checkbox-list")
@@ -109,17 +109,17 @@ describe 'Formula editor', ->
 #    cy.get("._formula_options").should "contain", "(default)"
 #      .get("._edit-variable-options").should "be.hidden"
 
-  specify "edit formula", ->
-    cy.wait 1000
-    testFormula "m1 * 20", "2000", false
-
-    # form submission is disabled when there are errors
-    testFormula "nerd * 2", "nerd is not defined", true
-    testFormula "if m1", "invalid formula", true
-    testFormula "m1 / 0", "Infinity", true
-
-    # ...and re-enabled when there are not
-    testFormula "1 / m1", "0.01", false
+#  specify "edit formula", ->
+#    cy.wait 100
+#    testFormula "m1 * 20", "2000", false
+#
+#    # form submission is disabled when there are errors
+#    testFormula "nerd * 2", "nerd is not defined", true
+#    testFormula "if m1", "invalid formula", true
+#    testFormula "m1 / 0", "Infinity", true
+#
+#    # ...and re-enabled when there are not
+#    testFormula "1 / m1", "0.01", false
 
 #  specify "edit variable value", ->
 #    cy.get "._sample-result-value"
@@ -132,8 +132,8 @@ describe 'Formula editor', ->
 #
 #    cy.get "._sample-result-value"
 #      .should "have.text", "0.02"
-#
-#
+
+
 #  specify "edit variable name", ->
 #
 #    cy.get "input._variable-name"

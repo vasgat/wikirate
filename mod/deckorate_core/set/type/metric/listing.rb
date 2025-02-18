@@ -4,7 +4,7 @@ format :html do
   end
 
   view :bar_right do
-    [count_badges(:wikirate_company, :metric_answer, :reference), render_bookmark]
+    [count_badges(:company, :answer, :reference), render_bookmark]
   end
 
   view :bar_middle do
@@ -22,13 +22,17 @@ format :html do
   end
 
   view :box_bottom do
-    count_badges :metric_answer, :wikirate_company
+    count_badges :answer, :company
   end
 
   # thumbnails
 
   before :thumbnail do
     class_up "thumbnail", "metric-thumbnail"
+  end
+
+  def thumbnail
+    haml :thumbnail
   end
 
   view :thumbnail_image do
@@ -38,19 +42,11 @@ format :html do
   end
 
   def thumbnail_subtitle
-    [fixed_thumbnail_subtitle, formula_options].flatten.compact.join(" | ")
+    nest card.metric_designer_card, view: :thumbnail_minimal, size: :icon
   end
 
-  def fixed_thumbnail_subtitle
+  def metric_type_details
     card.metric_type_name
-  end
-
-  def formula_options
-    # FIXME: handle options from json
-    # %i[year company unknown not_researched].map do |key|
-    #   next unless (value = voo.send key)
-    #   "#{key}: #{value}"
-    # end.compact
   end
 
   def goto_autocomplete_icon

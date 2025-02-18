@@ -3,7 +3,7 @@ require File.expand_path("../config/environment", __FILE__)
 def potential_numeric_metrics_cql
   { type_id: Card::MetricID,
     right_plus: [
-      { type_id: Card::WikirateCompanyID },
+      { type_id: Card::CompanyID },
       right_plus: [
         { type: "year" },
         right_plus: ["value", { content: ["match", "[[:digit:]]+"] }],
@@ -40,14 +40,14 @@ end
 
 def metric_values metric_name
   Card.search left: {
-    type_id: Card::MetricAnswerID,
+    type_id: Card::AnswerID,
     left: { left: metric_name }
   }, right: "value"
 end
 
 def skip_metric m
   puts "Skip the #{m.name} because unknown inside".red
-  return if Card.exists? "#{m.name}+pending_normalize"
+  return if Card.exist? "#{m.name}+pending_normalize"
   Card.create! name: "#{m.name}+pending_normalize", type_id: Card::PhraseID,
                content: "true"
 end
@@ -152,7 +152,7 @@ end
 
 def handle_ratio_metric
   ratio_mv = Card.search left: { left: "PayScale+CEO to Worker pay" },
-                         type_id: Card::MetricAnswerID, append: "value"
+                         type_id: Card::AnswerID, append: "value"
   ratio_mv.each do |mv|
     mv_content = mv.content.clone
     if mv.content.gsub!(":01", "")

@@ -1,12 +1,3 @@
-# @example
-# create_answers do
-#   Siemens 2015 => 4, 2014 => 3
-#   Apple   2105 => 7
-# end
-def create_answers test_source=false, &block
-  Card::Metric::AnswerCreator.new(self, test_source, &block).add_answers
-end
-
 # @param args [Hash]
 # @option args [String] :company
 # @option args [String] :year
@@ -24,7 +15,7 @@ def add_answer_source_args args, source
   args["+source"] = source_hash
 end
 
-def extract_metric_answer_name args, error_msg
+def extract_answer_name args, error_msg
   args[:name] || begin
     missing = [:company, :year, :value].reject { |v| args[v] }
     if missing.empty?
@@ -37,7 +28,7 @@ def extract_metric_answer_name args, error_msg
 end
 
 def check_for_answer_conflict args, error_msg
-  return unless (answer_name = extract_metric_answer_name(args, error_msg))
+  return unless (answer_name = extract_answer_name(args, error_msg))
   value_card = Card[answer_name.to_name.field(:value)]
   return unless value_card&.new_value?(args[:value])
   link = format.link_to_card value_card.metric_card, "value"
@@ -61,7 +52,7 @@ def answer_name_from_args args
 end
 
 def answer_type_id related_company
-  related_company ? RelationshipAnswerID : MetricAnswerID
+  related_company ? RelationshipID : AnswerID
 end
 
 def add_answer_discussion_args hash, comment

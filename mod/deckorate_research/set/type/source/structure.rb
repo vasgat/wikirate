@@ -14,7 +14,7 @@ format :html do
   end
 
   def form_fields
-    flds = %i[wikirate_title report_type wikirate_company year description]
+    flds = %i[wikirate_title report_type company year description]
     if card.new?
       flds.unshift :file
     elsif card.wikirate_link_card.new?
@@ -24,11 +24,12 @@ format :html do
   end
 
   def tab_list
-    %i[details preview metric metric_answer]
+    %i[details preview metric answer]
   end
 
   def tab_options
-    { preview: { count: nil, label: "Preview" } }
+    { preview: { count: nil, label: "Preview" },
+      answer: { label: "Data points" } }
   end
 
   view :preview_tab do
@@ -39,11 +40,18 @@ format :html do
     field_nest :metric, view: :filtered_content
   end
 
-  view :metric_answer_tab do
-    field_nest :metric_answer, view: :filtered_content
+  view :answer_tab do
+    field_nest :answer, view: :filtered_content
   end
 
-  view :details_tab, template: :haml
+  view :details_tab_right, template: :haml
+
+  view :details_tab_left do
+    [
+      field_nest(:description, view: :titled),
+      field_nest(:discussion, view: :titled, show: :comment_box)
+    ]
+  end
 
   def original_link
     return unless card.link_url.present?

@@ -9,7 +9,7 @@ def value
 end
 
 def unknown_value?
-  Answer.unknown? content
+  ::Answer.unknown? content
 end
 
 def metric_key
@@ -34,6 +34,18 @@ end
 
 def view_cache_clean?
   true
+end
+
+def current_route_symbol
+  return unless db_content_is_changing?
+
+  if import_act?
+    :import
+  elsif Card::Auth.api_act?
+    :api
+  else
+    :direct
+  end
 end
 
 format :html do

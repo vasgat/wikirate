@@ -9,7 +9,7 @@ include_set Abstract::AnswerFilters
 delegate :inverse?, to: :metric_card
 
 def item_type_id
-  RelationshipAnswerID
+  RelationshipID
 end
 
 def query_class
@@ -26,14 +26,14 @@ format do
   def filter_map
     [
       :year,
-      { key: :wikirate_company,
+      { key: :company,
         type: :group,
         filters: [:subject_company_name, :object_company_name] },
       { key: :metric,
         type: :group,
         open: true,
-        filters: shared_metric_filter_map.unshift(:metric_name) },
-      { key: :metric_answer,
+        filters: super },
+      { key: :answer,
         type: :group,
         filters: [{ key: :value, open: true }, :updated] }
     ]

@@ -1,20 +1,44 @@
 class Card
   # CQL for filtering companies
-  class CompanyFilterCql < WikirateFilterCql
+  class CompanyFilterCql < DeckorateFilterCql
     class << self
       def country_condition
-        answer_condition :countries, :core_country
+        answer_condition :countries, %i[core country]
       end
 
       def category_condition
-        answer_condition :categories, :commons_company_category
+        answer_condition :categories, %i[commons company_category]
       end
 
       def company_answer_condition table, constraint
         AnswerCondition.new(table, constraint).sql
       end
 
+      def company_identifier_clauses hash
+        id_type = hash[:type]
+        id_value = hash[:value]
+
+        return unless id_type.present? || id_value.present?
+
+        yield company_identifier_type_clause(id_type),
+              company_identifier_value_clause(id_type, id_value)
+      end
+
       private
+
+      def company_identifier_type_clause id_type
+        id_type.present? ? id_type : { type: :company_identifier }
+      end
+
+      def company_identifier_value_clause id_type, id_value
+        if id_value.blank?
+          {}
+        elsif id_type.present? && !id_type.card.multiple?
+          { eq: id_value }
+        else
+          { content: [:match, ":#{id_value}"] }
+        end
+      end
 
       def answer_condition table, codename
         "#{table}.metric_id = #{codename.card_id} AND #{table}.value IN (?)"
@@ -116,7 +140,6 @@ class Card
     def company_cql company
       name_cql company
     end
-    alias wikirate_company_cql company_cql
 
     def company_group_cql group
       referred_to_by_company_list group
@@ -126,10 +149,16 @@ class Card
       referred_to_by_company_list dataset
     end
 
+    def company_identifier_cql value_hash
+      self.class.company_identifier_clauses(value_hash) do |type_clause, value_clause|
+        add_to_cql :right_plus, [type_clause, value_clause]
+      end
+    end
+
     def referred_to_by_company_list trunk
       return unless trunk.present?
       # this "and" is a hack to prevent collision between the referred_to_by's
-      add_to_cql :and, referred_to_by: Card::Name[trunk, :wikirate_company]
+      add_to_cql :and, referred_to_by: Card::Name[trunk, :company]
     end
   end
 

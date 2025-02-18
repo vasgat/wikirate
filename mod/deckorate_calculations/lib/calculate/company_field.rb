@@ -2,7 +2,7 @@ class Calculate
   # This "Calculator" class replicates the behavior of
   # more sophisticated Calculate::Calculator classes but performs a much
   # simpler "calculation" - it just takes values from company fields
-  # and creates metric answers out of them.
+  # and creates answers out of them.
   class CompanyField < Calculator
     YEAR = "2019".freeze
 
@@ -57,7 +57,7 @@ class Calculate
         company_id = company.card_id
         Card.search left_id: company_id, right_id: field_id
       else
-        Card.search left: { type_id: Card::WikirateCompanyID }, right_id: field_id
+        Card.search left: { type_id: Card::CompanyID }, right_id: field_id
       end
     end
 

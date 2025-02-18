@@ -2,8 +2,10 @@
 
 include_set BookmarkFilters
 
-def default_sort_option
-  :bookmarkers
+format do
+  def default_sort_option
+    :bookmarkers
+  end
 end
 
 def bookmark_type
@@ -36,7 +38,7 @@ format :html do
   end
 
   def topic_quick_filters
-    quick_filters_for :wikirate_topic, %i[wikirate_topic featured]
+    quick_filters_for :topic, %i[topic featured]
   end
 
   def company_group_quick_filters

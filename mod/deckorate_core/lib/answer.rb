@@ -1,9 +1,8 @@
-# lookup table for metric answers
+# lookup table for answers (answers to metric questions)
 class Answer < Cardio::Record
   @card_column = :answer_id
 
   include LookupTable
-
   extend AnswerClassMethods
 
   include CardlessAnswers
@@ -11,10 +10,11 @@ class Answer < Cardio::Record
   include EntryFetch
   include Export
   include Latest
+  include AndRelationship
 
   validates :answer_id, numericality: { only_integer: true }, presence: true,
                         unless: :virtual?
-  validate :must_be_an_answer, :card_must_exist, unless: :virtual?
+  validate :must_be_a_answer, :card_must_exist, unless: :virtual?
   validate :metric_must_exist
 
   belongs_to :metric, primary_key: :metric_id
@@ -23,7 +23,7 @@ class Answer < Cardio::Record
 
   attr_writer :card
 
-  fetcher :metric_id, :company_id, :record_id, :source_count, :source_url, :imported,
+  fetcher :metric_id, :company_id, :record_id, :source_count, :source_url,
           :value, :numeric_value, :checkers, :comments, :verification, :unpublished
 
   define_fetch_method :open_flags, :count_open_flags
@@ -40,7 +40,7 @@ class Answer < Cardio::Record
   end
 
   def card_query
-    { type: Card::MetricAnswerID, trash: false }
+    { type: Card::AnswerID, trash: false }
   end
 
   def company_key

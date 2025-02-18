@@ -3,7 +3,7 @@ $(document).ready ->
   $(".research-layout .tab-pane-answer_phase").on "change", "input, textarea, select", ->
     $(".research-answer .card-form").data "changed", true
 
-  # must confirm links to new record when answer form is changed
+  # must confirm links to new answer when answer form is changed
   $(".research-layout").on "click", "._research-metric-link, .research-answer-button", (e) ->
     return unless editInProgress()
     e.preventDefault()
@@ -11,11 +11,11 @@ $(document).ready ->
     leave.trigger "click"
     leave.data "confirmHref", $(this).attr "href"
 
-  # handle confirmed link to new record
+  # handle confirmed link to new answer
   $(".research-layout").on "click", "._yes_leave", () ->
     window.location.href = $("#confirmLeave").data "confirmHref"
 
-  # handle confirmed link to new record
+  # handle confirmed link to new answer
   $(".research-layout").on "click", "._yes_year", () ->
     year = $("#confirmYear").data "year"
     changeToYear year

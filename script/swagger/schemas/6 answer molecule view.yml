@@ -25,7 +25,7 @@ answer_molecule_view:
     value:
       type: string
       example: '43'
-    record_url:
+    answer_url:
       type: string
       example: https://wikirate.org/PayScale+CEO_to_Worker_pay+Apple_Inc.json
     sources:

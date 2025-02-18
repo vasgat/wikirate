@@ -27,7 +27,7 @@ RSpec.describe Card::AnswerQuery::AnswerFilters do
     end
 
     describe "#updated_by_query" do
-      it "finds records updated by single user" do
+      it "finds answer updated by single user" do
         # puts described_class.new(updater: "Joe_User").main_query.to_sql
         expect(query_class.new(updater: "Joe_User").main_query.count).to eq(8)
       end
@@ -37,7 +37,7 @@ RSpec.describe Card::AnswerQuery::AnswerFilters do
       let(:answer_parts) { [1] }
       let(:default_filters) { { company_id: company_name.card_id } }
 
-      before { Timecop.freeze Wikirate::HAPPY_BIRTHDAY }
+      before { Timecop.freeze Deckorate::HAPPY_BIRTHDAY }
       after { Timecop.return }
 
       it "finds today's edits" do
@@ -83,7 +83,7 @@ RSpec.describe Card::AnswerQuery::AnswerFilters do
     end
 
     describe "#updated_query" do
-      before { Timecop.freeze(Wikirate::HAPPY_BIRTHDAY) }
+      before { Timecop.freeze(Deckorate::HAPPY_BIRTHDAY) }
       after { Timecop.return }
 
       it "finds today's edits" do
@@ -114,12 +114,12 @@ RSpec.describe Card::AnswerQuery::AnswerFilters do
         expect(search).to include(answer_name)
       end
 
-      it "implicitly finds answers.unpublished = false" do
+      it "implicitly finds answer.unpublished = false" do
         answer.unpublished_card.update! content: 0
         expect(search).to include(answer_name)
       end
 
-      it "implicitly does not find answers.unpublished = true" do
+      it "implicitly does not find answer.unpublished = true" do
         answer.unpublished_card.update! content: 1
         expect(search).not_to include(answer_name)
       end

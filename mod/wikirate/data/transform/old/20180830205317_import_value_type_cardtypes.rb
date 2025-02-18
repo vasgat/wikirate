@@ -3,7 +3,7 @@
 class ImportValueTypeCardtypes < Cardio::Migration::Transform
   def up
     fix_bad_test_data
-    fix_record_types
+    fix_answer_types
     fix_answer_types
     Card::Cache.reset_all
     import_cards 'value_type_cardtypes.json'
@@ -14,7 +14,7 @@ class ImportValueTypeCardtypes < Cardio::Migration::Transform
     ensure_type_id_if_exists "Global Reporting Initiative+" \
                              "Fuel consumption from non-renewable sources (G4-EN3-a)",
                              Card::MetricID
-    ensure_type_id_if_exists "AT&T Inc.", Card::WikirateCompanyID
+    ensure_type_id_if_exists "AT&T Inc.", Card::CompanyID
   end
 
   def ensure_type_id_if_exists name, type_id
@@ -22,19 +22,19 @@ class ImportValueTypeCardtypes < Cardio::Migration::Transform
     card.update_column :type_id, type_id
   end
 
-  def fix_record_types
-    ensure_type Card::RecordID, Card::MetricID, Card::WikirateCompanyID
+  def fix_answer_types
+    ensure_type Card::AnswerID, Card::MetricID, Card::CompanyID
   end
 
   def fix_answer_types
-    ensure_type Card::MetricAnswerID, Card::RecordID, Card::YearID
+    ensure_type Card::AnswerID, Card::AnswerID, Card::YearID
   end
 
   def ensure_type type_id, left_type_id, right_type_id
     Card.search left: { type_id: left_type_id },
                 right: { type_id: right_type_id },
                 type_id: [:ne, type_id] do |broken|
-      puts "fixing #{Card.fetch_name(type_id)} #{broken.name}"
+      puts "fixing #{type_id.cardname} #{broken.name}"
       broken.update_column :type_id, type_id
     end
   end
@@ -59,12 +59,12 @@ class ImportValueTypeCardtypes < Cardio::Migration::Transform
 
   def score_value_ids metric_card
     value_ids_for_answers_where left: { left: { left_id: metric_card.id} },
-                                type_id: Card::MetricAnswerID
+                                type_id: Card::AnswerID
   end
 
   def standard_value_ids metric_card
     value_ids_for_answers_where left: { left_id: metric_card.id },
-                                type_id: Card::MetricAnswerID
+                                type_id: Card::AnswerID
   end
 
   def relationship_value_ids metric_card

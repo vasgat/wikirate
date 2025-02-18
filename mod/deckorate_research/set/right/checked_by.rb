@@ -18,7 +18,7 @@ end
 
 def verification
   symbol = verification_symbol
-  Answer.verification_index symbol if symbol
+  ::Answer.verification_index symbol if symbol
 end
 
 def verification_symbol
@@ -73,7 +73,7 @@ def option_names
 end
 
 def answer_card
-  @answer_card ||= left new: { type_id: Card::MetricAnswerID }
+  @answer_card ||= left new: { type_id: Card::AnswerID }
 end
 
 def answer

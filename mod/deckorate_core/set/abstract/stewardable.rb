@@ -1,4 +1,4 @@
-# NOTE: this can probably be added into Accountable once all abstract sets are preloaded
+# NOTE: this can probably be added into AccountHolder once all abstract sets are preloaded
 
 def stewards_any?
   stewards_all? || designed_metric_ids.any? || assigned_steward_metric_ids.any?
@@ -8,7 +8,7 @@ def stewards_all?
   Auth.always_ok? || id&.in?(Set::Self::WikirateTeam.member_ids)
 end
 
-# note: does NOT return all metrics for WikiRate team members
+# note: does NOT return all metrics for Wikirate team members
 def stewarded_metric_ids
   return unless real?
 

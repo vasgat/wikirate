@@ -6,7 +6,8 @@ class Card
     include AnswerFilters
     include AdvancedFilters
     include ValueFilters
-    include MetricAndCompanyFilters
+    include MetricFilters
+    include CompanyFilters
     include OutlierFilter
 
     self.card_id_map = {
@@ -16,7 +17,9 @@ class Card
       value_type: :value_type_id
     }.freeze
     self.card_id_filters = ::Set.new(card_id_map.keys).freeze
-    self.simple_filters = ::Set.new(%i[company_id metric_id latest numeric_value]).freeze
+    self.simple_filters = ::Set.new(
+      %i[company_id metric_id latest numeric_value route]
+    ).freeze
 
     STATUS_GROUPS = { 0 => :unknown, 1 => :known, nil => :none }.freeze
 
@@ -67,8 +70,7 @@ class Card
     private
 
     def main_results
-      # puts "SQL: #{lookup_relation.to_sql}"
-      lookup_relation.answer_cards
+      lookup_relation.map(&:card).compact
     end
 
     def status_filter

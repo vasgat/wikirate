@@ -1,10 +1,11 @@
-# filter interface for Data Sets
+# filter interface for Datasets
 
 include_set Abstract::CqlSearch
 include_set Abstract::SearchViews
 include_set CommonFilters
 include_set Abstract::DeckorateFiltering
 include_set Abstract::BookmarkFiltering
+include_set Abstract::BarBoxToggle
 
 def item_type_id
   DatasetID
@@ -16,7 +17,7 @@ end
 
 format do
   def filter_cql_class
-    WikirateFilterCql
+    DeckorateFilterCql
   end
 
   def default_sort_option
@@ -24,7 +25,7 @@ format do
   end
 
   def filter_map
-    %i[name wikirate_topic bookmark]
+    %i[name topic bookmark]
   end
 
   def default_filter_hash

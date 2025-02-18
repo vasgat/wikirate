@@ -8,7 +8,7 @@
     "url": "https://wikirate.org/Cardtype.json",
     "codename": "cardtype"
   },
-  "url": "https://wikirate.org/Records.json",
+  "url": "https://wikirate.org/Answer_Logs.json",
   "codename": "record",
   "items": [
     {
@@ -138,11 +138,11 @@
   "ancestors": [
 
   ],
-  "html_url": "https://wikirate.org/Record",
+  "html_url": "https://wikirate.org/Answer_Log",
   "created_at": "2018-01-21 02:21:45 UTC",
   "updated_at": "2020-03-31 12:16:30 UTC",
   "paging": {
-    "next": "https://wikirate.org/Record.json?item=name&limit=20&offset=20"
+    "next": "https://wikirate.org/Answer_Log.json?item=name&limit=20&offset=20"
   },
   "requested_at": "2023-09-29 11:01:15 UTC",
   "license": "Creative Commons Attribution-ShareAlike 4.0 International License"

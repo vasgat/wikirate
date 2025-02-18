@@ -9,7 +9,7 @@ RSpec.describe Card::Set::Abstract::CompanySearch do
     subject { format.filter_cql_from_params }
 
     def cql args
-      args # .merge type_id: Card::WikirateCompanyID
+      args # .merge type_id: Card::CompanyID
     end
 
     context "with name argument" do
@@ -25,6 +25,11 @@ RSpec.describe Card::Set::Abstract::CompanySearch do
     context "with company_category argument" do
       before { filter_args company_category: "myIndustry" }
       it { is_expected.to eq cql(company_category: "myIndustry") }
+    end
+
+    context "with company_identifier argument" do
+      before { filter_args company_identifier: { type: "Wikipedia" } }
+      it { is_expected.to eq cql(right_plus: ["Wikipedia", {}]) }
     end
 
     context "with dataset argument" do

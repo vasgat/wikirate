@@ -1,13 +1,14 @@
 describe "expanding details on company pages", ->
-  specify "WikiRating", ->
+  specify "Rating", ->
     cy.visit "Death Star"
 
     # use filter to find darkness rating
-    cy.get(".tab-li-metric_answer").click()
-    cy.get("._filters-button a").click()
+    cy.get(".tab-li-answer").click()
+    cy.get("._open-filters-button a").click()
     cy.get(".offcanvas").within () ->
-      cy.contains("Metric Name").click()
-      cy.get("[name='filter[metric_name]']").type("darkness{enter}")
+      cy.get(".accordion-header").contains("Metric").click()
+      cy.contains("Metric Keyword").click()
+      cy.get("[name='filter[metric_keyword]']").type("darkness{enter}")
     cy.get(".offcanvas-header .btn-close").click()
 
     # filter works

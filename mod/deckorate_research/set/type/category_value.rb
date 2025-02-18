@@ -2,12 +2,16 @@ include_set Abstract::List
 include_set Abstract::Value
 
 event :validate_valid_categories, :validate, on: :save do
-  return true if Answer.unknown?(value) || (invalid_options = illegal_items).empty?
+  return true if ::Answer.unknown?(value) || (invalid_options = illegal_items).empty?
 
   url = "/#{options_card.name.url_key}?view=edit"
   anchor = %(<a href='#{url}' target="_blank">add that option</a>)
   errors.add :content, "invalid option(s): #{invalid_options.join ', '}. " \
                        "Please #{anchor} before adding this metric value."
+end
+
+def item_references?
+  false
 end
 
 def illegal_items
@@ -28,7 +32,7 @@ def inverted_options_hash
 end
 
 def pretty_values
-  return ["Unknown"] if Answer.unknown? value
+  return ["Unknown"] if ::Answer.unknown? value
 
   json_options? ? raw_values_from_hash : raw_value
 end

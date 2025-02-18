@@ -2,7 +2,7 @@ EXPORT_LIMIT_OPTIONS = [50, 100, 500, 1000, 5000].freeze
 
 format do
   def export_filename
-    "WikiRate-#{export_timestamp}-#{export_title}"
+    "Wikirate-#{export_timestamp}-#{export_title}"
   end
 
   def default_limit
@@ -42,12 +42,20 @@ format :json do
 end
 
 format :html do
-  view :export_panel, cache: :never, template: :haml, wrap: :slot
+  view :export_panel, template: :haml, wrap: :slot
+  view :export_button, cache: :yes, template: :haml, denial: :blank
+  view :export_limit, cache: :never, template: :haml
 
-  view :export_button, cache: :never, template: :haml, denial: :blank
+  view :export_hidden_tags, cache: :never do
+    hidden_tags filter_and_sort_hash, nil, form: "export-form"
+  end
 
-  def export_mark
-    card.name
+  view :filtered_results_footer do
+    super() + export_form
+  end
+
+  def export_form
+    form_tag "/#{card.name.url_key}", id: "export-form", method: :get
   end
 
   def default_export_limit

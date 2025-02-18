@@ -32,9 +32,9 @@ class Card
       end
 
       def filter_by_verification value
-        index = Answer.verification_index value
-        if index
-          filter :verification, index
+        indeces = Array.wrap(value).map { |v| ::Answer.verification_index v }
+        if indeces.present?
+          filter :verification, indeces
         else
           filter_by_non_standard_verification value
         end
@@ -42,7 +42,7 @@ class Card
 
       def checked_by whom
         restrict_by_cql :checked_by, :answer_id,
-                        type_id: MetricAnswerID,
+                        type_id: AnswerID,
                         right_plus: [CheckedByID, { refer_to: whom }]
       end
 
